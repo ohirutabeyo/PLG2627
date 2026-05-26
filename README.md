@@ -84,7 +84,7 @@ PLG2627/
 - [x] 09. Brentford (`brentford.html`)
 - [x] 10. Chelsea (`chelsea.html`)
 - [x] 11. Fulham (`fulham.html`)
-- [ ] 12. Newcastle United
+- [x] 12. Newcastle United (`newcastle.html`)
 - [ ] 13. Everton
 - [ ] 14. Leeds United
 - [ ] 15. Crystal Palace
