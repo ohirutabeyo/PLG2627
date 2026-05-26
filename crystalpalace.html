@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal Palace — 2026/27 Tactical Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #070d1a;
+    --bg-secondary: #0a1326;
+    --bg-tertiary: #0e1a36;
+    --pitch-dark: #0d3b1f;
+    --pitch-light: #11502a;
+    --cpfc: #1B458F;
+    --cpfc-light: #3a6ac0;
+    --cpfc-deep: #122e60;
+    --cpfc-glow: #e8473f;
+    --gold: #c9a961;
+    --gold-bright: #e8c87a;
+    --text-primary: #f4f1ea;
+    --text-secondary: #aeb6cc;
+    --text-muted: #5e6780;
+    --warning: #e8a04a;
+    --incoming: #5fb88a;
+    --incoming-bright: #7ed4a7;
+    --line: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-primary);
+    background-image:
+      radial-gradient(ellipse at top, rgba(27, 69, 143, 0.24) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom, rgba(232, 71, 63, 0.06) 0%, transparent 50%);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Noto Serif JP', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 4px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; position: relative; z-index: 2; }
+
+  /* HEADER */
+  .header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 40px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
+  .header-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .breadcrumb { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb:hover { color: var(--cpfc-light); }
+  .header-meta .dot { width: 6px; height: 6px; background: var(--cpfc-glow); border-radius: 50%; box-shadow: 0 0 12px var(--cpfc-glow); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.85); } }
+
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 88px); font-weight: 600; line-height: 0.95; letter-spacing: -0.02em; }
+  h1 .accent { color: var(--cpfc-glow); font-style: italic; font-weight: 500; }
+
+  .champions-tag { display: inline-block; margin-top: 14px; padding: 4px 12px; border: 1px solid var(--gold); color: var(--gold-bright); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; }
+  .subtitle { margin-top: 12px; font-size: 14px; color: var(--text-secondary); letter-spacing: 0.05em; font-weight: 300; }
+
+  .header-right { text-align: right; font-family: 'JetBrains Mono', monospace; }
+  .formation-badge { display: inline-block; padding: 14px 22px; background: linear-gradient(135deg, var(--cpfc-deep) 0%, var(--cpfc) 100%); border-radius: 4px; font-size: 28px; font-weight: 700; letter-spacing: 0.1em; box-shadow: 0 8px 32px rgba(27,69,143,0.45); margin-bottom: 12px; color: var(--text-primary); }
+  .manager-info { font-size: 11px; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; }
+  .manager-info strong { color: var(--gold-bright); font-weight: 500; }
+
+  /* INFO STRIP */
+  .info-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 48px; }
+  .info-cell { background: var(--bg-secondary); padding: 18px 22px; }
+  .info-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .info-cell .value { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; }
+  .info-cell .value.small { font-size: 14px; line-height: 1.4; }
+
+  /* BRIEFING */
+  .briefing { margin-bottom: 56px; padding: 36px 40px; background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border: 1px solid var(--line); position: relative; }
+  .briefing::before { content:''; position:absolute; top:0; left:0; width:80px; height:2px; background: var(--gold-bright); }
+  .briefing-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .briefing h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
+  .briefing h2 .em { font-style: italic; color: var(--cpfc-glow); font-weight: 500; }
+  .briefing-lead { font-family: 'Noto Serif JP', serif; font-size: 14.5px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 36px; max-width: 880px; font-weight: 300; }
+  .briefing-lead strong { color: var(--text-primary); font-weight: 500; }
+
+  .briefing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+
+  .phase-diagram { background: rgba(0,0,0,0.25); padding: 22px 18px; border: 1px solid var(--line); }
+  .phase-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 4px; padding: 0 4px; }
+  .phase-shape { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; margin-bottom: 18px; letter-spacing: 0.04em; padding: 0 4px; }
+
+  .mini-pitch { position: relative; width: 100%; aspect-ratio: 5/7; background: linear-gradient(180deg, var(--pitch-light) 0%, var(--pitch-dark) 100%); border: 1.5px solid rgba(255,255,255,0.18); border-radius: 3px; margin-bottom: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 60px rgba(0,0,0,0.3); }
+  .mini-pitch::before { content:''; position:absolute; inset:0; background-image: repeating-linear-gradient(180deg, transparent 0, transparent 9.5%, rgba(0,0,0,0.08) 9.5%, rgba(0,0,0,0.08) 10%); pointer-events: none; border-radius: 3px; }
+  .mini-pitch > svg.markings { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .mini-line { stroke: rgba(255,255,255,0.22); stroke-width: 0.25; fill: none; }
+
+  .mp { position: absolute; transform: translate(-50%, -50%); z-index: 5; width: 0; }
+  .mp-disc { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--cpfc-light) 0%, var(--cpfc) 100%); border: 1.5px solid var(--text-primary); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--text-primary); box-shadow: 0 3px 10px rgba(0,0,0,0.55), inset 0 -2px 5px rgba(0,0,0,0.25); margin: 0 auto; }
+  .mp-disc.gk { background: linear-gradient(135deg, var(--gold-bright) 0%, #8b6f3a 100%); }
+  .mp-disc.risk { border-color: var(--warning); box-shadow: 0 3px 10px rgba(0,0,0,0.55), 0 0 0 2px rgba(232,160,74,0.18); }
+  .mp-disc.incoming-target { border-color: var(--incoming); box-shadow: 0 3px 10px rgba(0,0,0,0.55), 0 0 0 2px rgba(95,184,138,0.22); }
+  .mp-label { margin-top: 4px; text-align: center; width: 100px; margin-left: -50px; line-height: 1.1; }
+  .mp-pos { font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.1em; color: var(--gold-bright); background: rgba(0,0,0,0.7); padding: 1px 4px; border-radius: 2px; border: 1px solid rgba(201,169,97,0.25); display: inline-block; margin-bottom: 2px; }
+  .mp-name { font-family: 'Noto Serif JP', serif; font-size: 10.5px; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.95); }
+  .mp.edge-right .mp-label { margin-left: -75px; text-align: right; }
+  .mp.edge-left .mp-label { margin-left: -17px; text-align: left; }
+
+  .mp-alt { margin-top: 3px; padding-top: 3px; border-top: 1px dashed rgba(232, 160, 74, 0.55); font-family: 'Noto Serif JP', serif; font-size: 9px; line-height: 1.25; color: var(--warning); }
+  .mp-alt.incoming { border-top-color: rgba(95, 184, 138, 0.55); color: var(--incoming-bright); }
+  .mp-alt .mp-alt-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.12em; opacity: 0.85; margin-bottom: 1px; }
+  .mp-alt .mp-alt-name { color: var(--text-primary); font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
+  .mp-alt .mp-alt-rating { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; margin-left: 3px; }
+
+  .phase-desc { font-size: 12.5px; line-height: 1.65; color: var(--text-secondary); font-weight: 300; padding: 0 4px; }
+  .phase-desc strong { color: var(--text-primary); font-weight: 500; }
+
+  .role-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--line); }
+  .role-cell { padding: 18px 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .role-cell:nth-child(2n) { border-right: none; }
+  .role-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .role-pos { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--gold-bright); margin-bottom: 4px; }
+  .role-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .role-desc { font-size: 12px; line-height: 1.6; color: var(--text-secondary); font-weight: 300; }
+  .role-desc strong { color: var(--text-primary); font-weight: 500; }
+
+  /* LEGEND */
+  .legend { display: flex; justify-content: center; gap: 28px; margin-top: 32px; flex-wrap: wrap; padding: 18px; background: var(--bg-secondary); border: 1px solid var(--line); }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.06em; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+  .legend-dot.normal { background: linear-gradient(135deg, var(--cpfc-light), var(--cpfc)); border: 1.5px solid var(--text-primary); }
+  .legend-dot.gk { background: linear-gradient(135deg, var(--gold-bright), #8b6f3a); border: 1.5px solid var(--text-primary); }
+  .legend-dot.risk { background: linear-gradient(135deg, var(--cpfc-light), var(--cpfc)); border: 1.5px solid var(--warning); box-shadow: 0 0 0 2px rgba(232,160,74,0.2); }
+  .legend-dot.incoming { background: linear-gradient(135deg, var(--cpfc-light), var(--cpfc)); border: 1.5px solid var(--incoming); box-shadow: 0 0 0 2px rgba(95,184,138,0.25); }
+
+  /* NOTES */
+  .notes { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .note-card { background: var(--bg-secondary); border-left: 2px solid var(--cpfc-light); padding: 24px 28px; }
+  .note-card.incoming-card { border-left-color: var(--incoming); }
+  .note-card.risk-card { border-left-color: var(--warning); }
+  .note-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; margin-bottom: 14px; color: var(--gold-bright); }
+  .note-card.incoming-card h3 { color: var(--incoming-bright); }
+  .note-card.risk-card h3 { color: var(--warning); }
+  .note-card p, .note-card li { font-size: 13.5px; line-height: 1.7; color: var(--text-secondary); font-weight: 300; }
+  .note-card ul { padding-left: 18px; }
+  .note-card li { margin-bottom: 8px; }
+  .note-card strong { color: var(--text-primary); font-weight: 500; }
+  .note-card .pct { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 1px 6px; border-radius: 2px; background: rgba(0,0,0,0.4); margin-left: 6px; }
+  .pct.warn { color: var(--warning); border: 1px solid rgba(232,160,74,0.3); }
+  .pct.inc { color: var(--incoming-bright); border: 1px solid rgba(95,184,138,0.3); }
+  .pct.neutral { color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+
+  /* FOOTER */
+  .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .header { grid-template-columns: 1fr; }
+    .header-right { text-align: left; }
+    .info-strip { grid-template-columns: repeat(2, 1fr); }
+    .notes { grid-template-columns: 1fr; }
+    .briefing { padding: 24px 22px; }
+    .briefing h2 { font-size: 26px; }
+    .briefing-grid { grid-template-columns: 1fr; gap: 24px; }
+    .role-grid { grid-template-columns: 1fr; }
+    .role-cell { border-right: none !important; border-bottom: 1px solid var(--line) !important; }
+    .role-cell:last-child { border-bottom: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <div class="header-meta">
+        <span class="dot"></span>
+        <a href="index.html" class="breadcrumb">← INDEX</a>
+        <span>DOSSIER 15 / 17 · POS 15</span>
+        <span>SEASON 2026 — 2027</span>
+      </div>
+      <h1>Crystal <span class="accent">Palace.</span></h1>
+      <div class="champions-tag">FA Cup 王者 · 2024/25</div>
+      <div class="subtitle">Selhurst Park · South London · Founded 1905</div>
+    </div>
+    <div class="header-right">
+      <div class="formation-badge">3 — 4 — 2 — 1</div>
+      <div class="manager-info">
+        Head Coach · <strong>後任選定中</strong><br>
+        グラスナー退任 · 体制移行
+      </div>
+    </div>
+  </header>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-cell">
+      <div class="label">戦術アイデンティティ</div>
+      <div class="value small">堅守速攻＆セットプレー</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">保持時の形</div>
+      <div class="value">3 — 2 — 5</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">非保持時</div>
+      <div class="value small">5 — 4 — 1 / 5 — 2 — 3</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">25/26 成績</div>
+      <div class="value small">15位 · 45pts · GD -10</div>
+    </div>
+  </div>
+
+  <!-- TACTICAL BRIEFING -->
+  <section class="briefing">
+    <div class="briefing-label">▎Tactical Briefing</div>
+    <h2>3-4-2-1 — <span class="em">「黄金期の岐路」</span></h2>
+    <p class="briefing-lead">
+      グラスナーが植え付けた<strong>3-4-2-1の堅守速攻</strong>でFAカップを制し、クラブ史に残る黄金期を築いたパレス。しかし<strong>エゼをアーセナルに£60mで売却</strong>し、創造性の核を失った今季はリーグで苦戦。さらに<strong>グラスナーの退任が決定</strong>し、主将ゲーイにもシティが迫るなど、チームは大きな岐路に立っています。基盤の3-4-2-1は新監督にも引き継がれる見込みで、保持時は両WBを上げ<strong>3-2-5</strong>へ可変します。
+    </p>
+
+    <div class="briefing-grid">
+
+      <!-- DEFENSIVE PHASE -->
+      <div class="phase-diagram">
+        <div class="phase-title">▽ DEFENSIVE PHASE — 守備時</div>
+        <div class="phase-shape">3 — 4 — 2 — 1</div>
+        <div class="mini-pitch">
+          <svg class="markings" viewBox="0 0 50 70" preserveAspectRatio="none">
+            <line x1="0" y1="35" x2="50" y2="35" class="mini-line"/>
+            <circle cx="25" cy="35" r="5" class="mini-line"/>
+            <rect x="11" y="0" width="28" height="9" class="mini-line"/>
+            <rect x="11" y="61" width="28" height="9" class="mini-line"/>
+          </svg>
+
+          <div class="mp" style="top:14%; left:50%;">
+            <div class="mp-disc">82</div>
+            <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">マテタ</div></div>
+          </div>
+          <div class="mp" style="top:33%; left:34%;">
+            <div class="mp-disc">77</div>
+            <div class="mp-label"><span class="mp-pos">LCAM</span><div class="mp-name">鎌田大地</div></div>
+          </div>
+          <div class="mp" style="top:33%; left:66%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label"><span class="mp-pos">RCAM</span><div class="mp-name">サー</div></div>
+          </div>
+          <div class="mp edge-left" style="top:57%; left:10%;">
+            <div class="mp-disc">77</div>
+            <div class="mp-label"><span class="mp-pos">LWB</span><div class="mp-name">ミッチェル</div></div>
+          </div>
+          <div class="mp" style="top:60%; left:38%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label"><span class="mp-pos">CM</span><div class="mp-name">ウォートン</div></div>
+          </div>
+          <div class="mp" style="top:60%; left:62%;">
+            <div class="mp-disc">76</div>
+            <div class="mp-label"><span class="mp-pos">CM</span><div class="mp-name">レルマ</div></div>
+          </div>
+          <div class="mp edge-right" style="top:57%; left:90%;">
+            <div class="mp-disc">81</div>
+            <div class="mp-label"><span class="mp-pos">RWB</span><div class="mp-name">ムニョス</div></div>
+          </div>
+          <div class="mp" style="top:77%; left:26%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">ラクロワ</div></div>
+          </div>
+          <div class="mp" style="top:79%; left:50%;">
+            <div class="mp-disc risk">82</div>
+            <div class="mp-label">
+              <span class="mp-pos">CB (C)</span>
+              <div class="mp-name">ゲーイ</div>
+              <div class="mp-alt">
+                <span class="mp-alt-label">▲ 移籍濃厚 (シティ)</span>
+                <span class="mp-alt-name">カンヴォ</span><span class="mp-alt-rating">73</span>
+              </div>
+            </div>
+          </div>
+          <div class="mp" style="top:77%; left:74%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label"><span class="mp-pos">RCB</span><div class="mp-name">リチャーズ</div></div>
+          </div>
+          <div class="mp" style="top:94%; left:50%;">
+            <div class="mp-disc gk">81</div>
+            <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">ヘンダーソン</div></div>
+          </div>
+        </div>
+        <p class="phase-desc">
+          基本布陣。非保持では両WBが下りて<strong>5-4-1のブロック</strong>を形成し、中央を固めて奪ったら一気に縦へ。2シャドー（鎌田・サー）とマテタが残り、<strong>ショートカウンターとセットプレー</strong>で仕留めるグラスナー式の遺産。後方の堅さが生命線。
+        </p>
+      </div>
+
+      <!-- OFFENSIVE PHASE -->
+      <div class="phase-diagram">
+        <div class="phase-title">▲ OFFENSIVE PHASE — 保持時</div>
+        <div class="phase-shape">3 — 2 — 5</div>
+        <div class="mini-pitch">
+          <svg class="markings" viewBox="0 0 50 70" preserveAspectRatio="none">
+            <line x1="0" y1="35" x2="50" y2="35" class="mini-line"/>
+            <circle cx="25" cy="35" r="5" class="mini-line"/>
+            <rect x="11" y="0" width="28" height="9" class="mini-line"/>
+            <rect x="11" y="61" width="28" height="9" class="mini-line"/>
+          </svg>
+
+          <div class="mp edge-left" style="top:28%; left:9%;">
+            <div class="mp-disc">77</div>
+            <div class="mp-label"><span class="mp-pos">LW</span><div class="mp-name">ミッチェル ↑</div></div>
+          </div>
+          <div class="mp" style="top:24%; left:33%;">
+            <div class="mp-disc">77</div>
+            <div class="mp-label"><span class="mp-pos">LCAM</span><div class="mp-name">鎌田大地</div></div>
+          </div>
+          <div class="mp" style="top:13%; left:50%;">
+            <div class="mp-disc">82</div>
+            <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">マテタ</div></div>
+          </div>
+          <div class="mp" style="top:24%; left:67%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label"><span class="mp-pos">RCAM</span><div class="mp-name">サー</div></div>
+          </div>
+          <div class="mp edge-right" style="top:28%; left:91%;">
+            <div class="mp-disc">81</div>
+            <div class="mp-label"><span class="mp-pos">RW</span><div class="mp-name">ムニョス ↑</div></div>
+          </div>
+
+          <div class="mp" style="top:50%; left:38%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">ウォートン</div></div>
+          </div>
+          <div class="mp" style="top:50%; left:62%;">
+            <div class="mp-disc">76</div>
+            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">レルマ</div></div>
+          </div>
+
+          <div class="mp" style="top:74%; left:26%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">ラクロワ</div></div>
+          </div>
+          <div class="mp" style="top:76%; left:50%;">
+            <div class="mp-disc risk">82</div>
+            <div class="mp-label">
+              <span class="mp-pos">CB (C)</span>
+              <div class="mp-name">ゲーイ</div>
+              <div class="mp-alt">
+                <span class="mp-alt-label">▲ 移籍濃厚 (シティ)</span>
+                <span class="mp-alt-name">カンヴォ</span><span class="mp-alt-rating">73</span>
+              </div>
+            </div>
+          </div>
+          <div class="mp" style="top:74%; left:74%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label"><span class="mp-pos">RCB</span><div class="mp-name">リチャーズ</div></div>
+          </div>
+
+          <div class="mp" style="top:94%; left:50%;">
+            <div class="mp-disc gk">81</div>
+            <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">ヘンダーソン</div></div>
+          </div>
+        </div>
+        <p class="phase-desc">
+          保持時の可変形。<strong>両WB（ミッチェル・ムニョス）が最前線へ押し上がり5レーンを占有</strong>、後方は3バック+ダブルボランチの「3-2」で安定。ムニョスの推進とマテタの収めが軸だが、エゼ退団で<strong>崩しの創造性をどう補うか</strong>が最大の課題。
+        </p>
+      </div>
+    </div>
+
+    <!-- ROLES -->
+    <div class="role-grid">
+      <div class="role-cell">
+        <div class="role-pos">GK</div>
+        <div class="role-title">ヘンダーソン = 好調の守護神</div>
+        <div class="role-desc">FAカップ制覇の立役者。<strong>シュートストップと配球</strong>を両立し、堅守ブロックの最後の砦。安定したパフォーマンスがチームの土台。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">CB × 3</div>
+        <div class="role-title">ゲーイ中心の3バック</div>
+        <div class="role-desc">主将ゲーイの統率に、ラクロワの対人とリチャーズの身体能力。<strong>堅守の中核</strong>。ただしゲーイのシティ移籍が濃厚で、最終ライン再編は不可避。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">WB × 2</div>
+        <div class="role-title">攻撃の主要レーン</div>
+        <div class="role-desc">右ムニョスの爆発的な推進力が最大の武器。<strong>守備時は5バック、攻撃時はウインガー</strong>。左ミッチェルの上下動と合わせ、幅と深さを供給する。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">DM × 2</div>
+        <div class="role-title">ウォートン = 中盤の指揮者</div>
+        <div class="role-desc">精度の高い配球とリズム変化で攻撃を操る若き才能。<strong>強豪クラブの視線</strong>も。レルマの守備強度と組み、後方の安定と前進を両立する。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">CAM × 2</div>
+        <div class="role-title">鎌田 = 2シャドーの知性</div>
+        <div class="role-desc">日本代表の技巧派。<strong>ハーフスペースで前を向き、ラストパスと潜り込み</strong>で違いを生む。エゼ退団後は創造性の比重がさらに増す重要ピース。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">ST</div>
+        <div class="role-title">マテタ = 万能の9番</div>
+        <div class="role-desc">プレス・収め・決定力を兼備するチーム得点源。<strong>カウンターの終点</strong>であり、セットプレーの的でもある。彼の得点がそのまま順位に直結する。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot normal"></span>通常選手 · EAFC26 OVR</div>
+    <div class="legend-item"><span class="legend-dot gk"></span>GK</div>
+    <div class="legend-item"><span class="legend-dot risk"></span>離脱リスク 70%+</div>
+    <div class="legend-item"><span class="legend-dot incoming"></span>補強候補 70%+</div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes">
+    <div class="note-card risk-card">
+      <h3>離脱動向</h3>
+      <ul>
+        <li><strong>マルク・ゲーイ</strong>（CB・主将）<span class="pct warn">75%</span><br>夏のリヴァプール移籍は破談も、今度は<strong>シティ移籍が最終段階</strong>との報道。守備の柱かつ主将の喪失は痛手</li>
+        <li><strong>アダム・ウォートン</strong>（DM）<span class="pct neutral">55%</span><br>マンUら強豪が中盤の核として関心。残留交渉が焦点</li>
+        <li><strong>エゼ</strong>はアーセナルへ£60mで移籍済み。<strong>グラスナー監督も退任</strong>し、体制全体が移行期</li>
+      </ul>
+    </div>
+
+    <div class="note-card incoming-card">
+      <h3>補強動向</h3>
+      <ul>
+        <li><strong>新監督の選定</strong><span class="pct inc">最優先</span><br>グラスナー後任の決定がオフ最大の課題。<strong>3-4-2-1を継続できる指揮官</strong>が望ましい</li>
+        <li><strong>創造性の補充</strong><span class="pct inc">75%</span><br>エゼの穴を埋める2シャドー／チャンスメイカー。ピノ獲得済みも、さらなる質の上積みが必要</li>
+        <li><strong>CB</strong><span class="pct neutral">60%</span><br>ゲーイ売却を見据え、最終ラインの即戦力を確保する構え。売却益が再投資の原資に</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>CRYSTAL PALACE · DOSSIER 15 / 17</span>
+    <span>EAFC 26 RATINGS · OFFICIAL</span>
+    <span>COMPILED FOR TAKEMOTO</span>
+  </footer>
+
+</div>
+</body>
+</html>
