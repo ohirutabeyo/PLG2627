@@ -79,7 +79,7 @@ PLG2627/
 - [x] 04. Aston Villa (`astonvilla.html`)
 - [x] 05. Liverpool (`liverpool.html`)
 - [x] 06. Bournemouth (`bournemouth.html`)
-- [ ] 07. Sunderland
+- [x] 07. Sunderland (`sunderland.html`)
 - [ ] 08. Brighton
 - [ ] 09. Brentford
 - [x] 10. Chelsea (`chelsea.html`)
