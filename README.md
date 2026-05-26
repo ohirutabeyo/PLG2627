@@ -81,7 +81,7 @@ PLG2627/
 - [x] 06. Bournemouth (`bournemouth.html`)
 - [x] 07. Sunderland (`sunderland.html`)
 - [x] 08. Brighton (`brighton.html`)
-- [ ] 09. Brentford
+- [x] 09. Brentford (`brentford.html`)
 - [x] 10. Chelsea (`chelsea.html`)
 - [ ] 11. Fulham
 - [ ] 12. Newcastle United
