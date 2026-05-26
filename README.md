@@ -76,7 +76,7 @@ PLG2627/
 - [x] 01. Arsenal (`arsenal.html`)
 - [x] 02. Manchester City (`mancity.html`)
 - [x] 03. Manchester United (`manunited.html`)
-- [ ] 04. Aston Villa
+- [x] 04. Aston Villa (`astonvilla.html`)
 - [ ] 05. Liverpool
 - [ ] 06. Bournemouth
 - [ ] 07. Sunderland
