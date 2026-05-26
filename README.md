@@ -74,7 +74,7 @@ PLG2627/
 ## ✅ 進捗
 
 - [x] 01. Arsenal (`arsenal.html`)
-- [ ] 02. Manchester City
+- [x] 02. Manchester City (`mancity.html`)
 - [ ] 03. Manchester United
 - [ ] 04. Aston Villa
 - [ ] 05. Liverpool
