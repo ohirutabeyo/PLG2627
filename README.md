@@ -88,7 +88,7 @@ PLG2627/
 - [x] 13. Everton (`everton.html`)
 - [x] 14. Leeds United (`leeds.html`)
 - [x] 15. Crystal Palace (`crystalpalace.html`)
-- [ ] 16. Nottingham Forest
+- [x] 16. Nottingham Forest (`nottinghamforest.html`)
 - [ ] 17. Tottenham
 
 ---
