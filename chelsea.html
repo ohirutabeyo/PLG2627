@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chelsea FC — 2026/27 Tactical Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a1628;
+    --bg-secondary: #0f1d35;
+    --bg-tertiary: #15263f;
+    --pitch-dark: #0d3b1f;
+    --pitch-light: #11502a;
+    --chelsea: #034694;
+    --chelsea-light: #2d6cc0;
+    --chelsea-glow: #4a8fdb;
+    --gold: #c9a961;
+    --gold-bright: #e8c87a;
+    --text-primary: #f4f1ea;
+    --text-secondary: #a8b2c4;
+    --text-muted: #5e6b80;
+    --danger: #d4574e;
+    --warning: #e8a04a;
+    --incoming: #5fb88a;
+    --incoming-bright: #7ed4a7;
+    --line: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-primary);
+    background-image:
+      radial-gradient(ellipse at top, rgba(3, 70, 148, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Noto Serif JP', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 4px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+  }
+
+  .header-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .header-meta .dot {
+    width: 6px; height: 6px;
+    background: var(--chelsea-glow);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--chelsea-glow);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  h1 .accent {
+    color: var(--chelsea-light);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    font-weight: 300;
+  }
+
+  .header-right {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .formation-badge {
+    display: inline-block;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--chelsea) 0%, var(--chelsea-light) 100%);
+    border-radius: 4px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    box-shadow: 0 8px 32px rgba(3, 70, 148, 0.4);
+    margin-bottom: 12px;
+  }
+
+  .manager-info {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .manager-info strong { color: var(--gold-bright); font-weight: 500; }
+
+  /* ===== INFO STRIP ===== */
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+
+  .info-cell {
+    background: var(--bg-secondary);
+    padding: 18px 22px;
+  }
+  .info-cell .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .info-cell .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .info-cell .value.small { font-size: 14px; line-height: 1.4; }
+
+  /* ===== PITCH ===== */
+  .pitch-wrap {
+    position: relative;
+    margin-bottom: 60px;
+  }
+
+  .pitch-label {
+    position: absolute;
+    top: -12px; left: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+    padding: 0 12px;
+    z-index: 3;
+  }
+
+  .pitch {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 7 / 10;
+    max-width: 780px;
+    margin: 0 auto;
+    background:
+      linear-gradient(180deg, var(--pitch-light) 0%, var(--pitch-dark) 100%);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    overflow: visible;
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.5),
+      inset 0 0 120px rgba(0,0,0,0.3);
+  }
+
+  /* pitch stripes */
+  .pitch::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(180deg,
+        transparent 0,
+        transparent 9.5%,
+        rgba(0,0,0,0.08) 9.5%,
+        rgba(0,0,0,0.08) 10%);
+    pointer-events: none;
+  }
+
+  .pitch-lines {
+    position: absolute; inset: 0;
+    pointer-events: none;
+  }
+  .pitch-lines svg { width: 100%; height: 100%; }
+
+  /* ===== PLAYERS ===== */
+  .player {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .player-disc {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--chelsea-light) 0%, var(--chelsea) 100%);
+    border: 2px solid var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow:
+      0 6px 20px rgba(0,0,0,0.6),
+      inset 0 -3px 8px rgba(0,0,0,0.3),
+      inset 0 3px 8px rgba(255,255,255,0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .player-disc.gk {
+    background: linear-gradient(135deg, #c9a961 0%, #8b6f3a 100%);
+  }
+
+  .player-disc.risk {
+    border-color: var(--warning);
+    box-shadow:
+      0 6px 20px rgba(0,0,0,0.6),
+      0 0 0 4px rgba(232, 160, 74, 0.15),
+      inset 0 -3px 8px rgba(0,0,0,0.3);
+  }
+
+  .player-disc.incoming-target {
+    border-color: var(--incoming);
+    box-shadow:
+      0 6px 20px rgba(0,0,0,0.6),
+      0 0 0 4px rgba(95, 184, 138, 0.2),
+      inset 0 -3px 8px rgba(0,0,0,0.3);
+  }
+
+  .player:hover .player-disc {
+    transform: scale(1.1);
+    box-shadow:
+      0 10px 30px rgba(74, 143, 219, 0.6),
+      inset 0 -3px 8px rgba(0,0,0,0.3);
+  }
+
+  .player-info {
+    margin-top: 8px;
+    text-align: center;
+    width: 150px;
+    margin-left: -47px;
+  }
+
+  .pos-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--gold-bright);
+    background: rgba(0,0,0,0.65);
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    border: 1px solid rgba(201, 169, 97, 0.3);
+  }
+
+  .player-name {
+    font-family: 'Noto Serif JP', 'Cormorant Garamond', serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.15;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+  }
+  .player-name .surname { display: block; }
+
+  .alt-player {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed rgba(232, 160, 74, 0.4);
+    font-size: 11px;
+    color: var(--warning);
+    font-family: 'Noto Serif JP', sans-serif;
+    line-height: 1.3;
+  }
+  .alt-player.incoming {
+    border-top-color: rgba(95, 184, 138, 0.5);
+    color: var(--incoming-bright);
+  }
+  .alt-player .alt-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    opacity: 0.8;
+    margin-bottom: 3px;
+    color: var(--warning);
+  }
+  .alt-player.incoming .alt-label { color: var(--incoming-bright); }
+
+  .alt-player .alt-name {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  .alt-player .alt-rating {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    margin-left: 4px;
+    color: var(--warning);
+  }
+  .alt-player.incoming .alt-rating { color: var(--incoming-bright); }
+
+  /* ===== POSITIONS (3-4-2-1) ===== */
+  .p-gk    { top: 92%; left: 50%; }
+  .p-rcb   { top: 75%; left: 75%; }
+  .p-cb    { top: 78%; left: 50%; }
+  .p-lcb   { top: 75%; left: 25%; }
+  .p-rwb   { top: 55%; left: 90%; }
+  .p-lwb   { top: 55%; left: 10%; }
+  .p-cm1   { top: 58%; left: 38%; }
+  .p-cm2   { top: 58%; left: 62%; }
+  .p-cam1  { top: 32%; left: 32%; }
+  .p-cam2  { top: 32%; left: 68%; }
+  .p-st    { top: 14%; left: 50%; }
+
+  .p-rwb .player-info { margin-left: -95px; text-align: right; }
+  .p-lwb .player-info { margin-left: 6px; text-align: left; }
+
+  /* ===== LEGEND ===== */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+  }
+  .legend-dot.normal {
+    background: linear-gradient(135deg, var(--chelsea-light), var(--chelsea));
+    border: 1.5px solid var(--text-primary);
+  }
+  .legend-dot.gk {
+    background: linear-gradient(135deg, var(--gold-bright), #8b6f3a);
+    border: 1.5px solid var(--text-primary);
+  }
+  .legend-dot.risk {
+    background: linear-gradient(135deg, var(--chelsea-light), var(--chelsea));
+    border: 1.5px solid var(--warning);
+    box-shadow: 0 0 0 2px rgba(232, 160, 74, 0.2);
+  }
+  .legend-dot.incoming {
+    background: linear-gradient(135deg, var(--chelsea-light), var(--chelsea));
+    border: 1.5px solid var(--incoming);
+    box-shadow: 0 0 0 2px rgba(95, 184, 138, 0.25);
+  }
+
+  /* ===== TACTICAL BRIEFING ===== */
+  .briefing {
+    margin-bottom: 56px;
+    padding: 36px 40px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .briefing::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 80px; height: 2px;
+    background: var(--gold-bright);
+  }
+  .briefing-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .briefing h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .briefing h2 .em {
+    font-style: italic;
+    color: var(--chelsea-glow);
+    font-weight: 500;
+  }
+  .briefing-lead {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    max-width: 880px;
+    font-weight: 300;
+  }
+  .briefing-lead strong { color: var(--text-primary); font-weight: 500; }
+
+  .briefing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .phase-diagram {
+    background: rgba(0,0,0,0.25);
+    padding: 22px 18px 22px;
+    border: 1px solid var(--line);
+  }
+  .phase-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 4px;
+    padding: 0 4px;
+  }
+  .phase-shape {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+    padding: 0 4px;
+  }
+
+  .mini-pitch {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 7;
+    background: linear-gradient(180deg, var(--pitch-light) 0%, var(--pitch-dark) 100%);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    border-radius: 3px;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 0 60px rgba(0,0,0,0.3);
+  }
+  .mini-pitch::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(180deg,
+      transparent 0,
+      transparent 9.5%,
+      rgba(0,0,0,0.08) 9.5%,
+      rgba(0,0,0,0.08) 10%);
+    pointer-events: none;
+    border-radius: 3px;
+  }
+  .mini-pitch > svg.markings {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .mini-line {
+    stroke: rgba(255,255,255,0.22);
+    stroke-width: 0.25;
+    fill: none;
+  }
+
+  /* mini players (positioned over mini-pitch) */
+  .mp {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 0; /* anchor only */
+  }
+  .mp-disc {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--chelsea-light) 0%, var(--chelsea) 100%);
+    border: 1.5px solid var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.55), inset 0 -2px 5px rgba(0,0,0,0.25);
+    margin: 0 auto;
+  }
+  .mp-disc.gk {
+    background: linear-gradient(135deg, var(--gold-bright) 0%, #8b6f3a 100%);
+  }
+  .mp-disc.risk {
+    border-color: var(--warning);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.55), 0 0 0 2px rgba(232,160,74,0.18);
+  }
+  .mp-disc.incoming-target {
+    border-color: var(--incoming);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.55), 0 0 0 2px rgba(95,184,138,0.22);
+  }
+
+  .mp-label {
+    margin-top: 4px;
+    text-align: center;
+    width: 100px;
+    margin-left: -50px;
+    line-height: 1.1;
+  }
+  .mp-pos {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5px;
+    letter-spacing: 0.1em;
+    color: var(--gold-bright);
+    background: rgba(0,0,0,0.7);
+    padding: 1px 4px;
+    border-radius: 2px;
+    border: 1px solid rgba(201, 169, 97, 0.25);
+    display: inline-block;
+    margin-bottom: 2px;
+  }
+  .mp-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.95);
+  }
+
+  /* edge fixes for wide players (so label doesn't clip) */
+  .mp.edge-right .mp-label { margin-left: -75px; text-align: right; }
+  .mp.edge-left .mp-label { margin-left: -17px; text-align: left; }
+
+  /* alternative / incoming candidate inside mini-pitch */
+  .mp-alt {
+    margin-top: 3px;
+    padding-top: 3px;
+    border-top: 1px dashed rgba(232, 160, 74, 0.55);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 9px;
+    line-height: 1.25;
+    color: var(--warning);
+  }
+  .mp-alt.incoming {
+    border-top-color: rgba(95, 184, 138, 0.55);
+    color: var(--incoming-bright);
+  }
+  .mp-alt .mp-alt-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.12em;
+    opacity: 0.85;
+    margin-bottom: 1px;
+  }
+  .mp-alt .mp-alt-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+  }
+  .mp-alt .mp-alt-rating {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    margin-left: 3px;
+  }
+  .mp-alt .mp-alt-sub {
+    display: block;
+    opacity: 0.75;
+    font-size: 8.5px;
+    margin-top: 1px;
+  }
+
+  .phase-desc {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    font-weight: 300;
+    padding: 0 4px;
+  }
+  .phase-desc strong { color: var(--text-primary); font-weight: 500; }
+
+  .role-grid {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+  .role-cell {
+    padding: 18px 22px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .role-cell:nth-child(2n) { border-right: none; }
+  .role-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+  .role-pos {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--gold-bright);
+    margin-bottom: 4px;
+  }
+  .role-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .role-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+  .role-desc strong { color: var(--text-primary); font-weight: 500; }
+
+  /* ===== LEGEND ===== */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    padding: 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--line);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+  }
+  .legend-dot.normal {
+    background: linear-gradient(135deg, var(--chelsea-light), var(--chelsea));
+    border: 1.5px solid var(--text-primary);
+  }
+  .legend-dot.gk {
+    background: linear-gradient(135deg, var(--gold-bright), #8b6f3a);
+    border: 1.5px solid var(--text-primary);
+  }
+  .legend-dot.risk {
+    background: linear-gradient(135deg, var(--chelsea-light), var(--chelsea));
+    border: 1.5px solid var(--warning);
+    box-shadow: 0 0 0 2px rgba(232, 160, 74, 0.2);
+  }
+  .legend-dot.incoming {
+    background: linear-gradient(135deg, var(--chelsea-light), var(--chelsea));
+    border: 1.5px solid var(--incoming);
+    box-shadow: 0 0 0 2px rgba(95, 184, 138, 0.25);
+  }
+
+  /* ===== NOTES SECTION ===== */
+  .notes {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .note-card {
+    background: var(--bg-secondary);
+    border-left: 2px solid var(--chelsea-light);
+    padding: 24px 28px;
+  }
+  .note-card.incoming-card { border-left-color: var(--incoming); }
+  .note-card.risk-card { border-left-color: var(--warning); }
+
+  .note-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--gold-bright);
+  }
+  .note-card.incoming-card h3 { color: var(--incoming-bright); }
+  .note-card.risk-card h3 { color: var(--warning); }
+
+  .note-card p, .note-card li {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+  .note-card ul { padding-left: 18px; }
+  .note-card li { margin-bottom: 8px; }
+  .note-card strong { color: var(--text-primary); font-weight: 500; }
+  .note-card .pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.4);
+    margin-left: 6px;
+  }
+  .pct.warn { color: var(--warning); border: 1px solid rgba(232, 160, 74, 0.3); }
+  .pct.inc { color: var(--incoming-bright); border: 1px solid rgba(95, 184, 138, 0.3); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .header { grid-template-columns: 1fr; }
+    .header-right { text-align: left; }
+    .info-strip { grid-template-columns: repeat(2, 1fr); }
+    .notes { grid-template-columns: 1fr; }
+    .briefing { padding: 24px 22px; }
+    .briefing h2 { font-size: 26px; }
+    .briefing-grid { grid-template-columns: 1fr; gap: 24px; }
+    .role-grid { grid-template-columns: 1fr; }
+    .role-cell { border-right: none !important; border-bottom: 1px solid var(--line) !important; }
+    .role-cell:last-child { border-bottom: none !important; }
+    .player-disc { width: 44px; height: 44px; font-size: 13px; }
+    .player-info { width: 118px; margin-left: -37px; }
+    .player-name { font-size: 12.5px; }
+    .p-rwb .player-info { margin-left: -75px; }
+    .p-lwb .player-info { margin-left: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <div class="header-meta">
+        <span class="dot"></span>
+        <span>PREMIER LEAGUE / DOSSIER 01 OF 17</span>
+        <span>SEASON 2026 — 2027</span>
+      </div>
+      <h1>Chelsea <span class="accent">FC.</span></h1>
+      <div class="subtitle">Stamford Bridge · West London · Founded 1905</div>
+    </div>
+    <div class="header-right">
+      <div class="formation-badge">3 — 4 — 2 — 1</div>
+      <div class="manager-info">
+        Manager · <strong>シャビ・アロンソ</strong><br>
+        2026年7月1日就任 · 4年契約
+      </div>
+    </div>
+  </header>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-cell">
+      <div class="label">戦術アイデンティティ</div>
+      <div class="value">ポジショナルプレー</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">保持時の形</div>
+      <div class="value">3 — 2 — 5</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">非保持時</div>
+      <div class="value small">ハイプレス · 強烈な即時奪回</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">前任者</div>
+      <div class="value small">マレスカ（1月解任）→ ロセニアー</div>
+    </div>
+  </div>
+
+  <!-- TACTICAL BRIEFING -->
+  <section class="briefing">
+    <div class="briefing-label">▎Tactical Briefing</div>
+    <h2>3-4-2-1 — <span class="em">「可変する3バック」</span></h2>
+    <p class="briefing-lead">
+      3-4-2-1は<strong>3バック + ダブルボランチ + 2シャドー + 1トップ</strong>の構造。アロンソがレバークーゼンを無敗優勝に導いた看板フォーメーションです。最大の特徴は<strong>「守備時は3-4-2-1、攻撃時は3-2-5に可変する」</strong>という流動性。両ウイングバックを高く上げ、ダブルボランチの一枚が最終ラインに落ちることで、後方の安定と前線5枚の厚みを同時に実現します。
+    </p>
+
+    <div class="briefing-grid">
+
+      <!-- DEFENSIVE PHASE -->
+      <div class="phase-diagram">
+        <div class="phase-title">▽ DEFENSIVE PHASE — 守備時</div>
+        <div class="phase-shape">3 — 4 — 2 — 1</div>
+        <div class="mini-pitch">
+          <svg class="markings" viewBox="0 0 50 70" preserveAspectRatio="none">
+            <line x1="0" y1="35" x2="50" y2="35" class="mini-line"/>
+            <circle cx="25" cy="35" r="5" class="mini-line"/>
+            <rect x="11" y="0" width="28" height="9" class="mini-line"/>
+            <rect x="11" y="61" width="28" height="9" class="mini-line"/>
+          </svg>
+
+          <!-- ST -->
+          <div class="mp" style="top:14%; left:50%;">
+            <div class="mp-disc incoming-target">79</div>
+            <div class="mp-label">
+              <span class="mp-pos">ST</span>
+              <div class="mp-name">ジョアン・ペドロ</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 補強濃厚</span>
+                <span class="mp-alt-name">オシムヘン</span><span class="mp-alt-rating">87</span>
+                <span class="mp-alt-sub">or イゴール・チアゴ 79</span>
+              </div>
+            </div>
+          </div>
+          <!-- LCAM -->
+          <div class="mp" style="top:33%; left:34%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label">
+              <span class="mp-pos">LCAM</span>
+              <div class="mp-name">エステヴァン</div>
+            </div>
+          </div>
+          <!-- RCAM -->
+          <div class="mp" style="top:33%; left:66%;">
+            <div class="mp-disc">87</div>
+            <div class="mp-label">
+              <span class="mp-pos">RCAM</span>
+              <div class="mp-name">パーマー</div>
+            </div>
+          </div>
+          <!-- LWB -->
+          <div class="mp edge-left" style="top:57%; left:10%;">
+            <div class="mp-disc">84</div>
+            <div class="mp-label">
+              <span class="mp-pos">LWB</span>
+              <div class="mp-name">ククレジャ</div>
+            </div>
+          </div>
+          <!-- CM left (Caicedo) -->
+          <div class="mp" style="top:60%; left:38%;">
+            <div class="mp-disc">87</div>
+            <div class="mp-label">
+              <span class="mp-pos">CM</span>
+              <div class="mp-name">カイセド</div>
+            </div>
+          </div>
+          <!-- CM right (Enzo RISK) -->
+          <div class="mp" style="top:60%; left:62%;">
+            <div class="mp-disc risk">84</div>
+            <div class="mp-label">
+              <span class="mp-pos">CM</span>
+              <div class="mp-name">エンソ・F</div>
+              <div class="mp-alt">
+                <span class="mp-alt-label">▲ 移籍濃厚 (レアル)</span>
+                <span class="mp-alt-name">A・サントス</span><span class="mp-alt-rating">80</span>
+              </div>
+            </div>
+          </div>
+          <!-- RWB -->
+          <div class="mp edge-right" style="top:57%; left:90%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label">
+              <span class="mp-pos">RWB</span>
+              <div class="mp-name">ギュスト</div>
+            </div>
+          </div>
+          <!-- LCB -->
+          <div class="mp" style="top:77%; left:26%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label">
+              <span class="mp-pos">LCB</span>
+              <div class="mp-name">ハト</div>
+            </div>
+          </div>
+          <!-- CB -->
+          <div class="mp" style="top:79%; left:50%;">
+            <div class="mp-disc">80</div>
+            <div class="mp-label">
+              <span class="mp-pos">CB</span>
+              <div class="mp-name">コルウィル</div>
+            </div>
+          </div>
+          <!-- RCB -->
+          <div class="mp" style="top:77%; left:74%;">
+            <div class="mp-disc">81</div>
+            <div class="mp-label">
+              <span class="mp-pos">RCB (C)</span>
+              <div class="mp-name">R・ジェームス</div>
+            </div>
+          </div>
+          <!-- GK -->
+          <div class="mp" style="top:94%; left:50%;">
+            <div class="mp-disc gk incoming-target">78</div>
+            <div class="mp-label">
+              <span class="mp-pos">GK</span>
+              <div class="mp-name">R・サンチェス</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 補強候補 (フリー)</span>
+                <span class="mp-alt-name">M・メニャン</span><span class="mp-alt-rating">86</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="phase-desc">
+          基本布陣。<strong>3バック+ダブルボランチで中央を厚くカバー</strong>し、ハイラインで相手のビルドアップに即時奪回を仕掛けます。2シャドーがハーフスペースを管理し、1トップがCBへの最初のプレッシャー。
+        </p>
+      </div>
+
+      <!-- OFFENSIVE PHASE -->
+      <div class="phase-diagram">
+        <div class="phase-title">▲ OFFENSIVE PHASE — 保持時</div>
+        <div class="phase-shape">3 — 2 — 5</div>
+        <div class="mini-pitch">
+          <svg class="markings" viewBox="0 0 50 70" preserveAspectRatio="none">
+            <line x1="0" y1="35" x2="50" y2="35" class="mini-line"/>
+            <circle cx="25" cy="35" r="5" class="mini-line"/>
+            <rect x="11" y="0" width="28" height="9" class="mini-line"/>
+            <rect x="11" y="61" width="28" height="9" class="mini-line"/>
+          </svg>
+
+          <!-- ST -->
+          <div class="mp" style="top:13%; left:50%;">
+            <div class="mp-disc incoming-target">79</div>
+            <div class="mp-label">
+              <span class="mp-pos">ST</span>
+              <div class="mp-name">ジョアン・ペドロ</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 補強濃厚</span>
+                <span class="mp-alt-name">オシムヘン</span><span class="mp-alt-rating">87</span>
+                <span class="mp-alt-sub">or イゴール・チアゴ 79</span>
+              </div>
+            </div>
+          </div>
+          <!-- Front 5: LW (Cucurella pushed up) -->
+          <div class="mp edge-left" style="top:28%; left:9%;">
+            <div class="mp-disc">84</div>
+            <div class="mp-label">
+              <span class="mp-pos">LW</span>
+              <div class="mp-name">ククレジャ ↑</div>
+            </div>
+          </div>
+          <!-- LCAM -->
+          <div class="mp" style="top:24%; left:33%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label">
+              <span class="mp-pos">LCAM</span>
+              <div class="mp-name">エステヴァン</div>
+            </div>
+          </div>
+          <!-- RCAM -->
+          <div class="mp" style="top:24%; left:67%;">
+            <div class="mp-disc">87</div>
+            <div class="mp-label">
+              <span class="mp-pos">RCAM</span>
+              <div class="mp-name">パーマー</div>
+            </div>
+          </div>
+          <!-- RW (Gusto pushed up) -->
+          <div class="mp edge-right" style="top:28%; left:91%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label">
+              <span class="mp-pos">RW</span>
+              <div class="mp-name">ギュスト ↑</div>
+            </div>
+          </div>
+          <!-- Double Pivot - Caicedo -->
+          <div class="mp" style="top:50%; left:38%;">
+            <div class="mp-disc">87</div>
+            <div class="mp-label">
+              <span class="mp-pos">DM</span>
+              <div class="mp-name">カイセド</div>
+            </div>
+          </div>
+          <!-- Double Pivot - Enzo -->
+          <div class="mp" style="top:50%; left:62%;">
+            <div class="mp-disc risk">84</div>
+            <div class="mp-label">
+              <span class="mp-pos">DM</span>
+              <div class="mp-name">エンソ・F</div>
+              <div class="mp-alt">
+                <span class="mp-alt-label">▲ 移籍濃厚 (レアル)</span>
+                <span class="mp-alt-name">A・サントス</span><span class="mp-alt-rating">80</span>
+              </div>
+            </div>
+          </div>
+          <!-- Back 3 stays -->
+          <div class="mp" style="top:74%; left:26%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label">
+              <span class="mp-pos">LCB</span>
+              <div class="mp-name">ハト</div>
+            </div>
+          </div>
+          <div class="mp" style="top:76%; left:50%;">
+            <div class="mp-disc">80</div>
+            <div class="mp-label">
+              <span class="mp-pos">CB</span>
+              <div class="mp-name">コルウィル</div>
+            </div>
+          </div>
+          <div class="mp" style="top:74%; left:74%;">
+            <div class="mp-disc">81</div>
+            <div class="mp-label">
+              <span class="mp-pos">RCB (C)</span>
+              <div class="mp-name">R・ジェームス</div>
+            </div>
+          </div>
+          <!-- GK -->
+          <div class="mp" style="top:94%; left:50%;">
+            <div class="mp-disc gk incoming-target">78</div>
+            <div class="mp-label">
+              <span class="mp-pos">GK</span>
+              <div class="mp-name">R・サンチェス</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 補強候補 (フリー)</span>
+                <span class="mp-alt-name">M・メニャン</span><span class="mp-alt-rating">86</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="phase-desc">
+          保持時の可変形。<strong>両WBが一気に最前線へ押し上がり、5レーンを埋める</strong>。後方は3バック+ダブルボランチで「3-2」の堅固な保持構造を維持。ピッチを横にも縦にも引き伸ばし、相手守備を歪ませます。
+        </p>
+      </div>
+    </div>
+
+    <!-- ROLES -->
+    <div class="role-grid">
+      <div class="role-cell">
+        <div class="role-pos">CB × 3</div>
+        <div class="role-title">ボールプレイング3バック</div>
+        <div class="role-desc">単なる守備者ではなく、ビルドアップの起点。左右CBは外に開いて幅を作り、中央CBはアンカー役。コルウィルの足元、ジェームスの配球が肝。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">WB × 2</div>
+        <div class="role-title">攻撃の主要レーン</div>
+        <div class="role-desc">5バックの両端であり、攻撃時は最前線のウインガー。<strong>このシステムの心臓部</strong>。ククレジャ、ギュストは90分間上下動する体力勝負。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">DM × 2</div>
+        <div class="role-title">ダブルボランチ</div>
+        <div class="role-desc">片方が下りて3バック化を補助、片方が前進。カイセドが守備の基盤、エンソ(or サントス)がパス循環。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">CAM × 2</div>
+        <div class="role-title">ハーフスペースの2シャドー</div>
+        <div class="role-desc">3-4-2-1の<strong>「2」</strong>。FWの脇、ハーフスペースを自由に動く創造性ポジション。パーマーとエステヴァンの真骨頂。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">ST × 1</div>
+        <div class="role-title">プレスの開始点 兼 得点源</div>
+        <div class="role-desc">CBへの最初のプレス担当。攻撃時はゴール前で構えるよりも、味方に決定機を生む動きが求められる。<strong>故にアロンソは「エリート9番」を要求</strong>。</div>
+      </div>
+      <div class="role-cell">
+        <div class="role-pos">GK × 1</div>
+        <div class="role-title">ビルドアップの起点</div>
+        <div class="role-desc">ハイラインを敷くため、GKは実質的なリベロ。足元の技術が必須。サンチェスがやや不安要素 →メニャン補強の動機。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot normal"></span>通常選手 · EAFC26 OVR</div>
+    <div class="legend-item"><span class="legend-dot gk"></span>GK</div>
+    <div class="legend-item"><span class="legend-dot risk"></span>離脱リスク 70%+</div>
+    <div class="legend-item"><span class="legend-dot incoming"></span>補強候補 70%+</div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes">
+    <div class="note-card risk-card">
+      <h3>離脱リスク（70%+）</h3>
+      <ul>
+        <li><strong>エンソ・フェルナンデス</strong><span class="pct warn">75%</span><br>本人レアル希望。シティのオファーは拒否方針。代替: アンドレイ・サントス</li>
+        <li><strong>整理リスト</strong>（70%+で放出）<br>ガルナチョ · ムドリク · チャロバー · トシン · エスーゴ · ペドロ・ネト（代理人離脱明言）</li>
+      </ul>
+    </div>
+
+    <div class="note-card incoming-card">
+      <h3>補強候補（70%+）</h3>
+      <ul>
+        <li><strong>ST: ストライカー獲得</strong><span class="pct inc">85%</span><br>誰になるかは別として「エリート9番」がアロンソの最優先要求。本命オシムヘン、現実線はイゴール・チアゴ</li>
+        <li><strong>GK: マイク・メニャン</strong><span class="pct inc">70%</span><br>ACミラン契約満了、フリー獲得可能</li>
+        <li><strong>CB: ディオマンデ</strong><span class="pct inc">55%</span><br>※70%基準では下回るが要監視</li>
+        <li><strong>新加入確定</strong>: ヨレル・ハト（アヤックス）、ジョバニ・ケンダ（スポルティング）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>CHELSEA · DOSSIER 01 / 17</span>
+    <span>EAFC 26 RATINGS · OFFICIAL</span>
+    <span>COMPILED FOR TAKEMOTO</span>
+  </footer>
+
+</div>
+</body>
+</html>
