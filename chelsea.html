@@ -34,7 +34,7 @@
   body {
     background: var(--bg-primary);
     background-image:
-      radial-gradient(ellipse at top, rgba(3, 70, 148, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at top, rgba(3, 70, 148, 0.20) 0%, transparent 55%),
       radial-gradient(ellipse at bottom, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
     color: var(--text-primary);
     font-family: 'Inter', 'Noto Serif JP', sans-serif;
@@ -81,7 +81,10 @@
     display: flex;
     gap: 24px;
     align-items: center;
+    flex-wrap: wrap;
   }
+  .breadcrumb { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb:hover { color: var(--chelsea-glow); }
 
   .header-meta .dot {
     width: 6px; height: 6px;
@@ -110,6 +113,8 @@
     font-style: italic;
     font-weight: 500;
   }
+
+  .champions-tag { display: inline-block; margin-top: 14px; padding: 4px 12px; border: 1px solid var(--gold); color: var(--gold-bright); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; }
 
   .subtitle {
     margin-top: 12px;
@@ -209,7 +214,6 @@
       inset 0 0 120px rgba(0,0,0,0.3);
   }
 
-  /* pitch stripes */
   .pitch::before {
     content: '';
     position: absolute;
@@ -760,6 +764,7 @@
   }
   .pct.warn { color: var(--warning); border: 1px solid rgba(232, 160, 74, 0.3); }
   .pct.inc { color: var(--incoming-bright); border: 1px solid rgba(95, 184, 138, 0.3); }
+  .pct.neutral { color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
 
   /* ===== FOOTER ===== */
   .footer {
@@ -768,6 +773,8 @@
     border-top: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     letter-spacing: 0.2em;
@@ -802,18 +809,19 @@
     <div>
       <div class="header-meta">
         <span class="dot"></span>
-        <a href="index.html" style="color:var(--text-muted); text-decoration:none;">← INDEX</a>
-        <span>DOSSIER 01 / 17 · POS 10</span>
+        <a href="index.html" class="breadcrumb">← INDEX</a>
+        <span>DOSSIER 06 / 20 · POS 10</span>
         <span>SEASON 2026 — 2027</span>
       </div>
       <h1>Chelsea <span class="accent">FC.</span></h1>
+      <div class="champions-tag">🏆 FIFA Club World Cup Winners · 2025</div>
       <div class="subtitle">Stamford Bridge · West London · Founded 1905</div>
     </div>
     <div class="header-right">
       <div class="formation-badge">3 — 4 — 2 — 1</div>
       <div class="manager-info">
         Manager · <strong>シャビ・アロンソ</strong><br>
-        2026年7月1日就任 · 4年契約
+        2026年7月就任 · 新任（前任 マレスカ）
       </div>
     </div>
   </header>
@@ -833,8 +841,8 @@
       <div class="value small">ハイプレス · 強烈な即時奪回</div>
     </div>
     <div class="info-cell">
-      <div class="label">前任者</div>
-      <div class="value small">マレスカ（1月解任）→ ロセニアー</div>
+      <div class="label">25/26 成績</div>
+      <div class="value small">10位 · 52pts · GD +6</div>
     </div>
   </div>
 
@@ -843,7 +851,7 @@
     <div class="briefing-label">▎Tactical Briefing</div>
     <h2>3-4-2-1 — <span class="em">「可変する3バック」</span></h2>
     <p class="briefing-lead">
-      3-4-2-1は<strong>3バック + ダブルボランチ + 2シャドー + 1トップ</strong>の構造。アロンソがレバークーゼンを無敗優勝に導いた看板フォーメーションです。最大の特徴は<strong>「守備時は3-4-2-1、攻撃時は3-2-5に可変する」</strong>という流動性。両ウイングバックを高く上げ、ダブルボランチの一枚が最終ラインに落ちることで、後方の安定と前線5枚の厚みを同時に実現します。
+      クラブW杯制覇の栄光と引き換えに、リーグは<strong>10位・勝点52</strong>と低迷。欧州カップ戦の座を逃したチェルシーは、マレスカを退けレバークーゼンを無敗優勝に導いた<strong>シャビ・アロンソ</strong>を招聘しました。看板は3-4-2-1 ―― <strong>3バック + ダブルボランチ + 2シャドー + 1トップ</strong>。最大の特徴は<strong>「守備時は3-4-2-1、保持時は3-2-5に可変する」</strong>流動性で、両ウイングバックを高く上げ、後方の安定と前線5枚の厚みを同時に実現します。夏の主役は英国史上最高額<strong>£117m のモーガン・ロジャーズ</strong>。一方、公然とクラブ批判をしたククレジャがレアルへ去り、<strong>左ウイングバックは白紙</strong>という宿題を残しました。
     </p>
 
     <div class="briefing-grid">
@@ -862,23 +870,27 @@
 
           <!-- ST -->
           <div class="mp" style="top:14%; left:50%;">
-            <div class="mp-disc incoming-target">79</div>
+            <div class="mp-disc">79</div>
             <div class="mp-label">
               <span class="mp-pos">ST</span>
               <div class="mp-name">ジョアン・ペドロ</div>
               <div class="mp-alt incoming">
-                <span class="mp-alt-label">▼ 補強濃厚</span>
-                <span class="mp-alt-name">オシムヘン</span><span class="mp-alt-rating">87</span>
-                <span class="mp-alt-sub">or イゴール・チアゴ 79</span>
+                <span class="mp-alt-label">▼ 新加入</span>
+                <span class="mp-alt-name">エメガ</span><span class="mp-alt-rating">73</span>
               </div>
             </div>
           </div>
-          <!-- LCAM -->
+          <!-- LCAM (Morgan Rogers - new signing) -->
           <div class="mp" style="top:33%; left:34%;">
-            <div class="mp-disc">78</div>
+            <div class="mp-disc incoming-target">82</div>
             <div class="mp-label">
               <span class="mp-pos">LCAM</span>
-              <div class="mp-name">エステヴァン</div>
+              <div class="mp-name">M・ロジャーズ</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 英国史上最高額 £117m</span>
+                <span class="mp-alt-name">from ヴィラ</span>
+                <span class="mp-alt-sub">控え: エステヴァン 78</span>
+              </div>
             </div>
           </div>
           <!-- RCAM -->
@@ -889,12 +901,17 @@
               <div class="mp-name">パーマー</div>
             </div>
           </div>
-          <!-- LWB -->
+          <!-- LWB (unsettled) -->
           <div class="mp edge-left" style="top:57%; left:10%;">
-            <div class="mp-disc">84</div>
+            <div class="mp-disc risk">78</div>
             <div class="mp-label">
               <span class="mp-pos">LWB</span>
-              <div class="mp-name">ククレジャ</div>
+              <div class="mp-name">ハト</div>
+              <div class="mp-alt">
+                <span class="mp-alt-label">▲ 空席（ククレジャ離脱）</span>
+                <span class="mp-alt-name">本職不在</span>
+                <span class="mp-alt-sub">or パレストラ 72</span>
+              </div>
             </div>
           </div>
           <!-- CM left (Caicedo) -->
@@ -905,60 +922,56 @@
               <div class="mp-name">カイセド</div>
             </div>
           </div>
-          <!-- CM right (Enzo RISK) -->
+          <!-- CM right (Enzo) -->
           <div class="mp" style="top:60%; left:62%;">
-            <div class="mp-disc risk">84</div>
+            <div class="mp-disc">84</div>
             <div class="mp-label">
               <span class="mp-pos">CM</span>
               <div class="mp-name">エンソ・F</div>
-              <div class="mp-alt">
-                <span class="mp-alt-label">▲ 移籍濃厚 (レアル)</span>
-                <span class="mp-alt-name">A・サントス</span><span class="mp-alt-rating">80</span>
-              </div>
             </div>
           </div>
-          <!-- RWB -->
+          <!-- RWB (Reece James, captain) -->
           <div class="mp edge-right" style="top:57%; left:90%;">
-            <div class="mp-disc">79</div>
+            <div class="mp-disc">81</div>
             <div class="mp-label">
-              <span class="mp-pos">RWB</span>
-              <div class="mp-name">ギュスト</div>
+              <span class="mp-pos">RWB (C)</span>
+              <div class="mp-name">R・ジェームス</div>
+              <div class="mp-alt">
+                <span class="mp-alt-label">▲ 交代要員</span>
+                <span class="mp-alt-name">グスト</span><span class="mp-alt-rating">79</span>
+              </div>
             </div>
           </div>
           <!-- LCB -->
           <div class="mp" style="top:77%; left:26%;">
-            <div class="mp-disc">78</div>
+            <div class="mp-disc">80</div>
             <div class="mp-label">
               <span class="mp-pos">LCB</span>
-              <div class="mp-name">ハト</div>
+              <div class="mp-name">コルウィル</div>
             </div>
           </div>
           <!-- CB -->
           <div class="mp" style="top:79%; left:50%;">
-            <div class="mp-disc">80</div>
+            <div class="mp-disc">79</div>
             <div class="mp-label">
               <span class="mp-pos">CB</span>
-              <div class="mp-name">コルウィル</div>
+              <div class="mp-name">フォファナ</div>
             </div>
           </div>
           <!-- RCB -->
           <div class="mp" style="top:77%; left:74%;">
-            <div class="mp-disc">81</div>
+            <div class="mp-disc">79</div>
             <div class="mp-label">
-              <span class="mp-pos">RCB (C)</span>
-              <div class="mp-name">R・ジェームス</div>
+              <span class="mp-pos">RCB</span>
+              <div class="mp-name">チャロバー</div>
             </div>
           </div>
           <!-- GK -->
           <div class="mp" style="top:94%; left:50%;">
-            <div class="mp-disc gk incoming-target">78</div>
+            <div class="mp-disc gk">78</div>
             <div class="mp-label">
               <span class="mp-pos">GK</span>
               <div class="mp-name">R・サンチェス</div>
-              <div class="mp-alt incoming">
-                <span class="mp-alt-label">▼ 補強候補 (フリー)</span>
-                <span class="mp-alt-name">M・メニャン</span><span class="mp-alt-rating">86</span>
-              </div>
             </div>
           </div>
         </div>
@@ -981,31 +994,26 @@
 
           <!-- ST -->
           <div class="mp" style="top:13%; left:50%;">
-            <div class="mp-disc incoming-target">79</div>
+            <div class="mp-disc">79</div>
             <div class="mp-label">
               <span class="mp-pos">ST</span>
               <div class="mp-name">ジョアン・ペドロ</div>
-              <div class="mp-alt incoming">
-                <span class="mp-alt-label">▼ 補強濃厚</span>
-                <span class="mp-alt-name">オシムヘン</span><span class="mp-alt-rating">87</span>
-                <span class="mp-alt-sub">or イゴール・チアゴ 79</span>
-              </div>
             </div>
           </div>
-          <!-- Front 5: LW (Cucurella pushed up) -->
+          <!-- Front 5: LW (Hato pushed up) -->
           <div class="mp edge-left" style="top:28%; left:9%;">
-            <div class="mp-disc">84</div>
+            <div class="mp-disc risk">78</div>
             <div class="mp-label">
               <span class="mp-pos">LW</span>
-              <div class="mp-name">ククレジャ ↑</div>
+              <div class="mp-name">ハト ↑</div>
             </div>
           </div>
-          <!-- LCAM -->
+          <!-- LCAM (Morgan Rogers) -->
           <div class="mp" style="top:24%; left:33%;">
-            <div class="mp-disc">78</div>
+            <div class="mp-disc incoming-target">82</div>
             <div class="mp-label">
               <span class="mp-pos">LCAM</span>
-              <div class="mp-name">エステヴァン</div>
+              <div class="mp-name">M・ロジャーズ</div>
             </div>
           </div>
           <!-- RCAM -->
@@ -1016,12 +1024,12 @@
               <div class="mp-name">パーマー</div>
             </div>
           </div>
-          <!-- RW (Gusto pushed up) -->
+          <!-- RW (James pushed up) -->
           <div class="mp edge-right" style="top:28%; left:91%;">
-            <div class="mp-disc">79</div>
+            <div class="mp-disc">81</div>
             <div class="mp-label">
-              <span class="mp-pos">RW</span>
-              <div class="mp-name">ギュスト ↑</div>
+              <span class="mp-pos">RW (C)</span>
+              <div class="mp-name">R・ジェームス ↑</div>
             </div>
           </div>
           <!-- Double Pivot - Caicedo -->
@@ -1034,53 +1042,45 @@
           </div>
           <!-- Double Pivot - Enzo -->
           <div class="mp" style="top:50%; left:62%;">
-            <div class="mp-disc risk">84</div>
+            <div class="mp-disc">84</div>
             <div class="mp-label">
               <span class="mp-pos">DM</span>
               <div class="mp-name">エンソ・F</div>
-              <div class="mp-alt">
-                <span class="mp-alt-label">▲ 移籍濃厚 (レアル)</span>
-                <span class="mp-alt-name">A・サントス</span><span class="mp-alt-rating">80</span>
-              </div>
             </div>
           </div>
           <!-- Back 3 stays -->
           <div class="mp" style="top:74%; left:26%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label">
-              <span class="mp-pos">LCB</span>
-              <div class="mp-name">ハト</div>
-            </div>
-          </div>
-          <div class="mp" style="top:76%; left:50%;">
             <div class="mp-disc">80</div>
             <div class="mp-label">
-              <span class="mp-pos">CB</span>
+              <span class="mp-pos">LCB</span>
               <div class="mp-name">コルウィル</div>
             </div>
           </div>
-          <div class="mp" style="top:74%; left:74%;">
-            <div class="mp-disc">81</div>
+          <div class="mp" style="top:76%; left:50%;">
+            <div class="mp-disc">79</div>
             <div class="mp-label">
-              <span class="mp-pos">RCB (C)</span>
-              <div class="mp-name">R・ジェームス</div>
+              <span class="mp-pos">CB</span>
+              <div class="mp-name">フォファナ</div>
+            </div>
+          </div>
+          <div class="mp" style="top:74%; left:74%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label">
+              <span class="mp-pos">RCB</span>
+              <div class="mp-name">チャロバー</div>
             </div>
           </div>
           <!-- GK -->
           <div class="mp" style="top:94%; left:50%;">
-            <div class="mp-disc gk incoming-target">78</div>
+            <div class="mp-disc gk">78</div>
             <div class="mp-label">
               <span class="mp-pos">GK</span>
               <div class="mp-name">R・サンチェス</div>
-              <div class="mp-alt incoming">
-                <span class="mp-alt-label">▼ 補強候補 (フリー)</span>
-                <span class="mp-alt-name">M・メニャン</span><span class="mp-alt-rating">86</span>
-              </div>
             </div>
           </div>
         </div>
         <p class="phase-desc">
-          保持時の可変形。<strong>両WBが一気に最前線へ押し上がり、5レーンを埋める</strong>。後方は3バック+ダブルボランチで「3-2」の堅固な保持構造を維持。ピッチを横にも縦にも引き伸ばし、相手守備を歪ませます。
+          保持時の可変形。<strong>両WBが一気に最前線へ押し上がり、5レーンを埋める</strong>。後方は3バック+ダブルボランチで「3-2」の堅固な保持構造を維持。ピッチを横にも縦にも引き伸ばし、相手守備を歪ませます。<strong>左は本職不在のためハトが数的補完</strong>で上がる形。
         </p>
       </div>
     </div>
@@ -1090,32 +1090,32 @@
       <div class="role-cell">
         <div class="role-pos">CB × 3</div>
         <div class="role-title">ボールプレイング3バック</div>
-        <div class="role-desc">単なる守備者ではなく、ビルドアップの起点。左右CBは外に開いて幅を作り、中央CBはアンカー役。コルウィルの足元、ジェームスの配球が肝。</div>
+        <div class="role-desc">単なる守備者ではなく、ビルドアップの起点。左右CBは外に開いて幅を作り、中央CBはアンカー役。<strong>コルウィルの左足の配球</strong>が肝で、フォファナの対人・チャロバーの安定が支える。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">WB × 2</div>
         <div class="role-title">攻撃の主要レーン</div>
-        <div class="role-desc">5バックの両端であり、攻撃時は最前線のウインガー。<strong>このシステムの心臓部</strong>。ククレジャ、ギュストは90分間上下動する体力勝負。</div>
+        <div class="role-desc">5バックの両端であり、攻撃時は最前線のウインガー。<strong>このシステムの心臓部</strong>。右は主将R・ジェームスの適性ポジションだが、<strong>左は本職不在で最大の課題</strong>。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">DM × 2</div>
         <div class="role-title">ダブルボランチ</div>
-        <div class="role-desc">片方が下りて3バック化を補助、片方が前進。カイセドが守備の基盤、エンソ(or サントス)がパス循環。</div>
+        <div class="role-desc">片方が下りて3バック化を補助、片方が前進。<strong>カイセドが守備の基盤</strong>、エンソが前進とパス循環を担う。リーグ屈指の中盤コンビ。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">CAM × 2</div>
         <div class="role-title">ハーフスペースの2シャドー</div>
-        <div class="role-desc">3-4-2-1の<strong>「2」</strong>。FWの脇、ハーフスペースを自由に動く創造性ポジション。パーマーとエステヴァンの真骨頂。</div>
+        <div class="role-desc">3-4-2-1の<strong>「2」</strong>。FWの脇を自由に動く創造性ポジション。<strong>パーマー</strong>とアロンソが£117mを投じた<strong>M・ロジャーズ</strong>の並びが最大の売り。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">ST × 1</div>
         <div class="role-title">プレスの開始点 兼 得点源</div>
-        <div class="role-desc">CBへの最初のプレス担当。攻撃時はゴール前で構えるよりも、味方に決定機を生む動きが求められる。<strong>故にアロンソは「エリート9番」を要求</strong>。</div>
+        <div class="role-desc">CBへの最初のプレス担当。ジョアン・ペドロが降りて味方に決定機を作る。<strong>依然「エリート9番」不在</strong>で、エメガは将来枠。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">GK × 1</div>
         <div class="role-title">ビルドアップの起点</div>
-        <div class="role-desc">ハイラインを敷くため、GKは実質的なリベロ。足元の技術が必須。サンチェスがやや不安要素 →メニャン補強の動機。</div>
+        <div class="role-desc">ハイラインを敷くため、GKは実質的なリベロ。足元の技術が必須。<strong>サンチェスの安定感がやや不安要素</strong>として残る。</div>
       </div>
     </div>
   </section>
@@ -1124,35 +1124,37 @@
   <div class="legend">
     <div class="legend-item"><span class="legend-dot normal"></span>通常選手 · EAFC26 OVR</div>
     <div class="legend-item"><span class="legend-dot gk"></span>GK</div>
-    <div class="legend-item"><span class="legend-dot risk"></span>離脱リスク 70%+</div>
-    <div class="legend-item"><span class="legend-dot incoming"></span>補強候補 70%+</div>
+    <div class="legend-item"><span class="legend-dot risk"></span>離脱/空席リスク 70%+</div>
+    <div class="legend-item"><span class="legend-dot incoming"></span>新加入・補強 70%+</div>
   </div>
 
   <!-- NOTES -->
   <div class="notes">
     <div class="note-card risk-card">
-      <h3>離脱リスク（70%+）</h3>
+      <h3>離脱・空席（70%+）</h3>
       <ul>
-        <li><strong>エンソ・フェルナンデス</strong><span class="pct warn">75%</span><br>本人レアル希望。シティのオファーは拒否方針。代替: アンドレイ・サントス</li>
-        <li><strong>整理リスト</strong>（70%+で放出）<br>ガルナチョ · ムドリク · チャロバー · トシン · エスーゴ · ペドロ・ネト（代理人離脱明言）</li>
+        <li><strong>M・ククレジャ → レアル・マドリー</strong><span class="pct warn">100%</span><br>£51.8m で移籍完了（6月）。クラブ運営を公然と批判した末の退団で、<strong>左WBの本職が消失</strong>。当面はハトが本来のCB/LBから流用で埋める見込み</li>
+        <li><strong>整理リスト</strong>（70%+で放出）<span class="pct warn">70%+</span><br>スターリング · ジサシ · フェリックス · チュクウェメカ · ヴェイガ — アロンソの構想外で貸出/売却が濃厚</li>
+        <li>主力（パーマー · カイセド · エンソ · コルウィル · J・ペドロ）は<strong>全員残留濃厚</strong></li>
       </ul>
     </div>
 
     <div class="note-card incoming-card">
-      <h3>補強候補（70%+）</h3>
+      <h3>補強・新加入（70%+）</h3>
       <ul>
-        <li><strong>ST: ストライカー獲得</strong><span class="pct inc">85%</span><br>誰になるかは別として「エリート9番」がアロンソの最優先要求。本命オシムヘン、現実線はイゴール・チアゴ</li>
-        <li><strong>GK: マイク・メニャン</strong><span class="pct inc">70%</span><br>ACミラン契約満了、フリー獲得可能</li>
-        <li><strong>CB: ディオマンデ</strong><span class="pct inc">55%</span><br>※70%基準では下回るが要監視</li>
-        <li><strong>新加入確定</strong>: ヨレル・ハト（アヤックス）、ジョバニ・ケンダ（スポルティング）</li>
+        <li><strong>M・ロジャーズ</strong>（ヴィラ）<span class="pct inc">100%</span><br><strong>£117m = 英国史上最高額</strong>。7年契約で加入。左シャドーでパーマーと並ぶ攻撃の新軸</li>
+        <li><strong>G・ケンダ</strong>（スポルティング）<span class="pct inc">100%</span><br>右のWG/WB。若手の右レーン要員</li>
+        <li><strong>M・パレストラ</strong>（アタランタ）<span class="pct inc">100%</span><br>今夏第1号。右SB/WB、2033年までの長期契約</li>
+        <li><strong>E・エメガ</strong>（ストラスブール）<span class="pct inc">100%</span><br>将来のCF候補。前線の層を補う</li>
+        <li><strong>左WB本職</strong>の獲得が<strong>最優先の未解決課題</strong> <span class="pct neutral">監視中</span></li>
       </ul>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <span>CHELSEA · DOSSIER 01 / 17</span>
-    <span>EAFC 26 RATINGS · OFFICIAL</span>
+    <span>CHELSEA · DOSSIER 06 / 20</span>
+    <span>EAFC 26 RATINGS · 若手新加入は推定値</span>
     <span>COMPILED FOR TAKEMOTO</span>
   </footer>
 

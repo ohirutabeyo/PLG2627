@@ -1,6 +1,6 @@
 # PL2627 — Premier League 2026/27 Tactical Dossier
 
-Premier League 2026/27シーズン上位17クラブの戦術ドシエ。
+Premier League 2026/27シーズン**全20クラブ**の戦術ドシエ（昇格3クラブ＝コヴェントリー・ハル・イプスウィッチを追加／降格＝西ハム・バーンリー・ウルブズを除外／今夏の監督交代10クラブを反映。開幕前のため先発は予想・2026年7月下旬時点）。
 
 🌐 **Live**: https://ohirutabeyo.github.io/PLG2627/
 

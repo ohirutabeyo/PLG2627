@@ -14,10 +14,10 @@
     --bg-tertiary: #1b1e24;
     --pitch-dark: #0d3b1f;
     --pitch-light: #11502a;
-    --ful: #CC0000;
-    --ful-light: #e63b3b;
-    --ful-deep: #8f0000;
-    --ful-glow: #ff5a5a;
+    --ful: #3a3f47;
+    --ful-light: #7e8998;
+    --ful-deep: #24272d;
+    --ful-glow: #b9c3d0;
     --gold: #c9a961;
     --gold-bright: #e8c87a;
     --text-primary: #f4f1ea;
@@ -34,7 +34,7 @@
   body {
     background: var(--bg-primary);
     background-image:
-      radial-gradient(ellipse at top, rgba(204, 0, 0, 0.14) 0%, transparent 55%),
+      radial-gradient(ellipse at top, rgba(185, 195, 208, 0.11) 0%, transparent 55%),
       radial-gradient(ellipse at bottom, rgba(244, 241, 234, 0.04) 0%, transparent 50%);
     color: var(--text-primary);
     font-family: 'Inter', 'Noto Serif JP', sans-serif;
@@ -58,7 +58,7 @@
   .header-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
   .breadcrumb { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
   .breadcrumb:hover { color: var(--ful-light); }
-  .header-meta .dot { width: 6px; height: 6px; background: var(--ful-light); border-radius: 50%; box-shadow: 0 0 12px var(--ful-light); animation: pulse 2s ease-in-out infinite; }
+  .header-meta .dot { width: 6px; height: 6px; background: var(--ful-glow); border-radius: 50%; box-shadow: 0 0 12px var(--ful-glow); animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.85); } }
 
   h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 88px); font-weight: 600; line-height: 0.95; letter-spacing: -0.02em; }
@@ -68,7 +68,7 @@
   .subtitle { margin-top: 12px; font-size: 14px; color: var(--text-secondary); letter-spacing: 0.05em; font-weight: 300; }
 
   .header-right { text-align: right; font-family: 'JetBrains Mono', monospace; }
-  .formation-badge { display: inline-block; padding: 14px 22px; background: linear-gradient(135deg, var(--ful-deep) 0%, var(--ful) 100%); border-radius: 4px; font-size: 28px; font-weight: 700; letter-spacing: 0.1em; box-shadow: 0 8px 32px rgba(204,0,0,0.4); margin-bottom: 12px; color: var(--text-primary); }
+  .formation-badge { display: inline-block; padding: 14px 22px; background: linear-gradient(135deg, var(--ful-deep) 0%, var(--ful) 100%); border-radius: 4px; font-size: 28px; font-weight: 700; letter-spacing: 0.1em; box-shadow: 0 8px 32px rgba(0,0,0,0.5); margin-bottom: 12px; color: var(--text-primary); border: 1px solid rgba(255,255,255,0.14); }
   .manager-info { font-size: 11px; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; }
   .manager-info strong { color: var(--gold-bright); font-weight: 500; }
 
@@ -115,6 +115,7 @@
   .mp-alt .mp-alt-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.12em; opacity: 0.85; margin-bottom: 1px; }
   .mp-alt .mp-alt-name { color: var(--text-primary); font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
   .mp-alt .mp-alt-rating { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; margin-left: 3px; }
+  .mp-alt .mp-alt-sub { display: block; opacity: 0.75; font-size: 8.5px; margin-top: 1px; }
 
   .phase-desc { font-size: 12.5px; line-height: 1.65; color: var(--text-secondary); font-weight: 300; padding: 0 4px; }
   .phase-desc strong { color: var(--text-primary); font-weight: 500; }
@@ -139,7 +140,7 @@
 
   /* NOTES */
   .notes { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .note-card { background: var(--bg-secondary); border-left: 2px solid var(--ful); padding: 24px 28px; }
+  .note-card { background: var(--bg-secondary); border-left: 2px solid var(--ful-light); padding: 24px 28px; }
   .note-card.incoming-card { border-left-color: var(--incoming); }
   .note-card.risk-card { border-left-color: var(--warning); }
   .note-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; margin-bottom: 14px; color: var(--gold-bright); }
@@ -180,17 +181,18 @@
       <div class="header-meta">
         <span class="dot"></span>
         <a href="index.html" class="breadcrumb">← INDEX</a>
-        <span>DOSSIER 11 / 17 · POS 11</span>
+        <span>DOSSIER 10 / 20 · POS 11</span>
         <span>SEASON 2026 — 2027</span>
       </div>
       <h1>Fulham <span class="accent">FC.</span></h1>
-      <div class="champions-tag">安定の中位 · クレイヴン・コテージ</div>
+      <div class="champions-tag">監督交代 · クレイヴン・コテージ</div>
       <div class="subtitle">Craven Cottage · West London · Founded 1879</div>
     </div>
     <div class="header-right">
-      <div class="formation-badge">4 — 2 — 3 — 1</div>
+      <div class="formation-badge">4 — 3 — 3</div>
       <div class="manager-info">
-        Head Coach · <strong>後任選定中</strong><br>
+        Head Coach · <strong>アルベロア</strong><br>
+        2026年7月7日就任 · 3年契約（新任）<br>
         シルバ退団（ベンフィカへ）
       </div>
     </div>
@@ -200,7 +202,7 @@
   <div class="info-strip">
     <div class="info-cell">
       <div class="label">戦術アイデンティティ</div>
-      <div class="value small">堅実なブロック＋整然攻撃</div>
+      <div class="value small">前線からのハイプレス＋積極保持</div>
     </div>
     <div class="info-cell">
       <div class="label">保持時の形</div>
@@ -208,20 +210,20 @@
     </div>
     <div class="info-cell">
       <div class="label">非保持時</div>
-      <div class="value small">4 — 4 — 2 中盤ブロック</div>
+      <div class="value small">4-3-3 前3枚が誘導するハイプレス</div>
     </div>
     <div class="info-cell">
       <div class="label">25/26 成績</div>
-      <div class="value small">11位 · 52pts · GD +4</div>
+      <div class="value small">11位 · 52pts · GD −4</div>
     </div>
   </div>
 
   <!-- TACTICAL BRIEFING -->
   <section class="briefing">
     <div class="briefing-label">▎Tactical Briefing</div>
-    <h2>4-2-3-1 — <span class="em">「シルバ後の岐路」</span></h2>
+    <h2>4-3-3 — <span class="em">「シルバ後の再起動」</span></h2>
     <p class="briefing-lead">
-      マルコ・シルバが築いた4-2-3-1は<strong>規律あるブロック守備と、整然としたサイド攻撃</strong>が持ち味。毎年安定して残留を確保し、ときに上位を脅かす<strong>「堅実な中位の体現者」</strong>でした。しかし<strong>シルバは契約満了でベンフィカへ退団</strong>し、後任選びがオフ最大の課題に。ダブルボランチが中央を締め、左SBロビンソンの推進とウインガーの仕掛けで前進、保持時は両SBを上げ<strong>2-3-5</strong>へ——この土台を新指揮官が引き継げるか、加えて好調な主力への引き抜き圧力が26-27の焦点です。
+      7シーズンにわたりフラムを堅実な中位へ導いた<strong>マルコ・シルバがベンフィカへ退団</strong>。後任には<strong>レアル・マドリード暫定監督を務めたアルバロ・アルベロア（3年契約）</strong>が就任しました。シルバの<strong>4-2-3-1・低めのブロック守備</strong>から、アルベロアが志向するのは<strong>前線3枚が能動的にコースを切る4-3-3のハイプレス</strong>。単独アンカーのベルゲが中央を守り、2枚のインサイドハーフ（ケアニー／スミス・ロウ）がボックスへ走り込む。保持時は両SBを押し上げ<strong>2-3-5</strong>で幅と厚みを両立させます。最大の課題は<strong>ヒメネスがウルブズへ去った前線</strong>——18歳クシ=アサレとムニスが軸だが、計算できる9番の不在が26-27の焦点です。
     </p>
 
     <div class="briefing-grid">
@@ -229,7 +231,7 @@
       <!-- DEFENSIVE PHASE -->
       <div class="phase-diagram">
         <div class="phase-title">▽ DEFENSIVE PHASE — 守備時</div>
-        <div class="phase-shape">4 — 2 — 3 — 1</div>
+        <div class="phase-shape">4 — 3 — 3</div>
         <div class="mini-pitch">
           <svg class="markings" viewBox="0 0 50 70" preserveAspectRatio="none">
             <line x1="0" y1="35" x2="50" y2="35" class="mini-line"/>
@@ -238,60 +240,72 @@
             <rect x="11" y="61" width="28" height="9" class="mini-line"/>
           </svg>
 
-          <div class="mp" style="top:14%; left:50%;">
-            <div class="mp-disc">76</div>
+          <!-- ST -->
+          <div class="mp" style="top:12%; left:50%;">
+            <div class="mp-disc">75</div>
             <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">ムニス</div></div>
           </div>
-          <div class="mp edge-left" style="top:30%; left:13%;">
+          <!-- LW -->
+          <div class="mp edge-left" style="top:22%; left:15%;">
             <div class="mp-disc">80</div>
             <div class="mp-label"><span class="mp-pos">LW</span><div class="mp-name">イウォビ</div></div>
           </div>
-          <div class="mp" style="top:34%; left:50%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">CAM</span><div class="mp-name">スミス・ロウ</div></div>
-          </div>
-          <div class="mp edge-right" style="top:30%; left:87%;">
-            <div class="mp-disc risk">76</div>
+          <!-- RW (front-line flux / new signing) -->
+          <div class="mp edge-right" style="top:22%; left:85%;">
+            <div class="mp-disc incoming-target">62</div>
             <div class="mp-label">
               <span class="mp-pos">RW</span>
-              <div class="mp-name">H・ウィルソン</div>
-              <div class="mp-alt">
-                <span class="mp-alt-label">▲ 契約満了リスク</span>
-                <span class="mp-alt-name">ケヴィン</span><span class="mp-alt-rating">75</span>
+              <div class="mp-name">クシ=アサレ</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 前線は流動的</span>
+                <span class="mp-alt-name">H・ウィルソン</span><span class="mp-alt-rating">76</span>
+                <span class="mp-alt-sub">or 実績あるCF獲得</span>
               </div>
             </div>
           </div>
-          <div class="mp" style="top:52%; left:38%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">LCM</span><div class="mp-name">ベルゲ</div></div>
+          <!-- LCM -->
+          <div class="mp" style="top:40%; left:33%;">
+            <div class="mp-disc">77</div>
+            <div class="mp-label"><span class="mp-pos">LCM</span><div class="mp-name">スミス・ロウ</div></div>
           </div>
-          <div class="mp" style="top:52%; left:62%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">RCM</span><div class="mp-name">ルキッチ</div></div>
+          <!-- RCM -->
+          <div class="mp" style="top:40%; left:67%;">
+            <div class="mp-disc">74</div>
+            <div class="mp-label"><span class="mp-pos">RCM</span><div class="mp-name">ケアニー</div></div>
           </div>
+          <!-- DM -->
+          <div class="mp" style="top:54%; left:50%;">
+            <div class="mp-disc">79</div>
+            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">ベルゲ</div></div>
+          </div>
+          <!-- LB -->
           <div class="mp edge-left" style="top:72%; left:11%;">
             <div class="mp-disc">82</div>
             <div class="mp-label"><span class="mp-pos">LB</span><div class="mp-name">ロビンソン</div></div>
           </div>
-          <div class="mp" style="top:74%; left:36%;">
-            <div class="mp-disc">79</div>
-            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">バセイ</div></div>
+          <!-- LCB -->
+          <div class="mp" style="top:74%; left:37%;">
+            <div class="mp-disc">78</div>
+            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">バシー</div></div>
           </div>
-          <div class="mp" style="top:74%; left:64%;">
-            <div class="mp-disc">80</div>
+          <!-- RCB -->
+          <div class="mp" style="top:74%; left:63%;">
+            <div class="mp-disc">78</div>
             <div class="mp-label"><span class="mp-pos">RCB (C)</span><div class="mp-name">アンデルセン</div></div>
           </div>
+          <!-- RB -->
           <div class="mp edge-right" style="top:72%; left:89%;">
             <div class="mp-disc">77</div>
             <div class="mp-label"><span class="mp-pos">RB</span><div class="mp-name">テテ</div></div>
           </div>
-          <div class="mp" style="top:94%; left:50%;">
-            <div class="mp-disc gk">82</div>
+          <!-- GK -->
+          <div class="mp" style="top:93%; left:50%;">
+            <div class="mp-disc gk">80</div>
             <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">レノ</div></div>
           </div>
         </div>
         <p class="phase-desc">
-          基本布陣。<strong>4-4-2気味に中盤を圧縮</strong>し、無理せずブロックを保ってサイドへ追い込む堅実な守備。ダブルボランチ（ベルゲ・ルキッチ）が中央を埋め、奪ったらロビンソンの駆け上がりと両ウインガーで素早く陣地回復する。
+          基本布陣。<strong>前線3枚が相手CB・アンカーへのコースを切りながら誘導し、高い位置で奪う</strong>アルベロア式ハイプレス。ベルゲが単独アンカーで中央を封鎖、2枚のインサイドハーフが素早く連動して二度追いする。奪えなければ4-1-4-1気味に整えてブロックを組み直す。
         </p>
       </div>
 
@@ -307,63 +321,67 @@
             <rect x="11" y="61" width="28" height="9" class="mini-line"/>
           </svg>
 
-          <div class="mp edge-left" style="top:18%; left:9%;">
+          <!-- Front 5 -->
+          <div class="mp edge-left" style="top:20%; left:9%;">
             <div class="mp-disc">80</div>
             <div class="mp-label"><span class="mp-pos">LW</span><div class="mp-name">イウォビ</div></div>
           </div>
-          <div class="mp" style="top:22%; left:31%;">
-            <div class="mp-disc">78</div>
+          <div class="mp" style="top:26%; left:31%;">
+            <div class="mp-disc">77</div>
             <div class="mp-label"><span class="mp-pos">LCAM</span><div class="mp-name">スミス・ロウ ↑</div></div>
           </div>
           <div class="mp" style="top:13%; left:50%;">
-            <div class="mp-disc">76</div>
+            <div class="mp-disc">75</div>
             <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">ムニス</div></div>
           </div>
-          <div class="mp" style="top:22%; left:69%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">RCAM</span><div class="mp-name">ベルゲ ↑</div></div>
+          <div class="mp" style="top:26%; left:69%;">
+            <div class="mp-disc">74</div>
+            <div class="mp-label"><span class="mp-pos">RCAM</span><div class="mp-name">ケアニー ↑</div></div>
           </div>
-          <div class="mp edge-right" style="top:18%; left:91%;">
-            <div class="mp-disc risk">76</div>
+          <div class="mp edge-right" style="top:20%; left:91%;">
+            <div class="mp-disc incoming-target">62</div>
             <div class="mp-label">
               <span class="mp-pos">RW</span>
-              <div class="mp-name">H・ウィルソン</div>
-              <div class="mp-alt">
-                <span class="mp-alt-label">▲ 契約満了リスク</span>
-                <span class="mp-alt-name">ケヴィン</span><span class="mp-alt-rating">75</span>
+              <div class="mp-name">クシ=アサレ</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 前線は流動的</span>
+                <span class="mp-alt-name">H・ウィルソン</span><span class="mp-alt-rating">76</span>
               </div>
             </div>
           </div>
 
-          <div class="mp" style="top:48%; left:25%;">
+          <!-- Middle 3 (SBs push up + anchor) -->
+          <div class="mp" style="top:48%; left:22%;">
             <div class="mp-disc">82</div>
             <div class="mp-label"><span class="mp-pos">LM</span><div class="mp-name">ロビンソン ↑</div></div>
           </div>
           <div class="mp" style="top:50%; left:50%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">ルキッチ</div></div>
+            <div class="mp-disc">79</div>
+            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">ベルゲ</div></div>
           </div>
-          <div class="mp" style="top:48%; left:75%;">
+          <div class="mp" style="top:48%; left:78%;">
             <div class="mp-disc">77</div>
             <div class="mp-label"><span class="mp-pos">RM</span><div class="mp-name">テテ ↑</div></div>
           </div>
 
+          <!-- Back 2 -->
           <div class="mp" style="top:74%; left:38%;">
-            <div class="mp-disc">79</div>
-            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">バセイ</div></div>
+            <div class="mp-disc">78</div>
+            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">バシー</div></div>
           </div>
           <div class="mp" style="top:74%; left:62%;">
-            <div class="mp-disc">80</div>
+            <div class="mp-disc">78</div>
             <div class="mp-label"><span class="mp-pos">RCB (C)</span><div class="mp-name">アンデルセン</div></div>
           </div>
 
+          <!-- GK -->
           <div class="mp" style="top:92%; left:50%;">
-            <div class="mp-disc gk">82</div>
+            <div class="mp-disc gk">80</div>
             <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">レノ</div></div>
           </div>
         </div>
         <p class="phase-desc">
-          保持時の可変形。<strong>両SB（ロビンソン・テテ）が押し上がり、ルキッチと「3」</strong>を形成。前線5枚が幅を取る<strong>2-3-5</strong>で、特に左のロビンソン＋イウォビのコンビが崩しの主軸。スミス・ロウとベルゲがハーフスペースに侵入し厚みを出す。
+          保持時の可変形。<strong>両SB（ロビンソン・テテ）が押し上がり、ベルゲと「3」</strong>を形成。前線5枚が5レーンを埋める<strong>2-3-5</strong>で、左のロビンソン＋イウォビが崩しの主軸。2枚のインサイドハーフがハーフスペースへ侵入し厚みを出す。後方は2CB＋アンカーで即時奪回に備える。
         </p>
       </div>
     </div>
@@ -372,33 +390,33 @@
     <div class="role-grid">
       <div class="role-cell">
         <div class="role-pos">GK</div>
-        <div class="role-title">レノ = 安定の最後尾</div>
-        <div class="role-desc">経験豊富なドイツ人。<strong>シュートストップと安定感</strong>でチーム最高評価。堅実な守備ブロックの最終保険として勝ち点を守り続ける。</div>
+        <div class="role-title">レノ = ビルドアップの起点</div>
+        <div class="role-desc">経験豊富なドイツ人。<strong>シュートストップとチーム最高格の安定感</strong>に加え、ハイライン化で足元での関与も増える。後方の最終保険。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">CB × 2</div>
         <div class="role-title">アンデルセンが束ねる守備</div>
-        <div class="role-desc">主将格アンデルセンの統率とバセイのスピード＆対人。<strong>ブロック守備の安定</strong>を支える。ディオプ、クカレラ＝サーディら控えも層が厚い。</div>
+        <div class="role-desc">主将格アンデルセンの統率とバシーのスピード＆対人。<strong>ハイライン化で背後をケアする速さ</strong>が要求される。ディオプらの層は薄まり要補強。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">DM × 2</div>
-        <div class="role-title">バランス型ダブルボランチ</div>
-        <div class="role-desc">ベルゲの長身と推進、ルキッチの汗かきと配球。<strong>中央を締めて前線とつなぐ</strong>地味だが不可欠な役割。ケアニー、リードらが控える。</div>
+        <div class="role-pos">DM × 1</div>
+        <div class="role-title">ベルゲ = 単独アンカー</div>
+        <div class="role-desc">4-3-3の心臓。<strong>長身とカバー範囲で中央を一人で締める</strong>。前2枚が飛び出す分、フィルターとしての判断がチームの生命線になる。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">CAM</div>
-        <div class="role-title">スミス・ロウ = 質の供給源</div>
-        <div class="role-desc">ライン間で前を向き、ラストパスと持ち上がりを担う。<strong>ケガなくシーズンを通せるか</strong>が攻撃の質を大きく左右する。</div>
+        <div class="role-pos">CM × 2</div>
+        <div class="role-title">走り込むインサイドハーフ</div>
+        <div class="role-desc">ケアニーの配球とスミス・ロウの前向きな推進。<strong>ボックスへの飛び込みと二度追い</strong>が新システムの肝。ルキッチ（78）が有力な回転要員。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">LB / WING</div>
         <div class="role-title">ロビンソン = 攻撃の生命線</div>
-        <div class="role-desc">リーグ屈指の攻撃的左SB。<strong>アシスト量産のオーバーラップ</strong>が崩しの軸で、ビッグクラブの関心も。イウォビとの左サイドが最大の武器。</div>
+        <div class="role-desc">リーグ屈指の攻撃的左SB（82）。<strong>アシスト量産のオーバーラップ</strong>が崩しの軸で、保持時は高い位置の左レーンを担う。イウォビとの左が最大の武器。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">ST</div>
-        <div class="role-title">ムニス = 上昇株の9番</div>
-        <div class="role-desc">フィジカルと決定力で台頭。<strong>リーズ・アタランタら国内外の関心</strong>を集め、放出となればヒメネスの後継＋新たな得点源確保が急務に。</div>
+        <div class="role-pos">FW × 3</div>
+        <div class="role-title">流動的な前線 = 最大の宿題</div>
+        <div class="role-desc"><strong>ヒメネス退団で計算できる9番が不在</strong>。ムニス（75）と18歳クシ=アサレ（62）が軸候補だが、点の取れるCF獲得が急務。イウォビの左は数少ない確定要素。</div>
       </div>
     </div>
   </section>
@@ -416,26 +434,26 @@
     <div class="note-card risk-card">
       <h3>離脱動向</h3>
       <ul>
-        <li><strong>ハリー・ウィルソン</strong>（RW）<span class="pct warn">70%</span><br>契約満了が接近。<strong>アストン・ヴィラらがフリー獲得を狙う</strong>と報道。流出なら右の創造性に穴</li>
-        <li><strong>ロドリゴ・ムニス</strong>（ST）<span class="pct neutral">55%</span><br>リーズ・アタランタが関心。クラブの安定を揺るがしかねない得点源で要監視</li>
-        <li><strong>マルコ・シルバ</strong>（監督）<span class="pct warn">退団</span><br>契約満了で<strong>ベンフィカ監督に就任</strong>。長期政権が終わり、後任選びがオフの最重要事項に</li>
+        <li><strong>ラウル・ヒメネス</strong>（ST）<span class="pct warn">退団</span><br>契約満了で<strong>ウルブズへフリー移籍</strong>。経験豊富な得点源が抜け、前線に大穴。実績あるCFの獲得が最優先課題に</li>
+        <li><strong>前線が流動的</strong>（ST/RW）<span class="pct warn">高</span><br>ヒメネス後の9番が未確定。<strong>ムニス（75）＋18歳クシ=アサレ（62）</strong>が軸候補だが計算は立たず。右も新戦力次第で要監視</li>
+        <li><strong>マルコ・シルバ</strong>（監督）<span class="pct warn">退団</span><br>母国<strong>ベンフィカ監督に就任</strong>。7年の長期政権が終了し、アルベロアが4-3-3で再構築へ</li>
       </ul>
     </div>
 
     <div class="note-card incoming-card">
       <h3>補強動向</h3>
       <ul>
-        <li><strong>新監督の招へい</strong><span class="pct inc">最優先</span><br>シルバ退団を受け、堅実な守備組織を引き継げる後任の決定がオフ最大の課題</li>
-        <li><strong>WG: ウィルソンの後継</strong><span class="pct inc">70%</span><br>退団に備え右の創造性を補強。ケヴィンの定着＋新戦力で攻撃の幅を確保</li>
-        <li><strong>ST: 得点源の上積み</strong><span class="pct neutral">55%</span><br>ヒメネスの高齢化とムニスの去就を見据え、<strong>計算できる9番</strong>の獲得を検討</li>
-        <li>※ 近年は派手な補強を避ける堅実路線。<strong>26-27はまず主力の引き留めが最優先</strong></li>
+        <li><strong>ジョナ・クシ=アサレ</strong>（ST）<span class="pct inc">確定</span><br><strong>バイエルンから完全移籍（約€6m・5年契約）</strong>。買い戻し条項付き。18歳の逸材で将来の前線の柱候補</li>
+        <li><strong>実績あるCFの獲得</strong><span class="pct inc">最優先</span><br>ヒメネス後継として<strong>計算できる9番</strong>が急務。若手偏重の前線に軸となる得点源を</li>
+        <li><strong>アルベロアの招へい構想</strong><span class="pct neutral">憶測</span><br>本人はレアルから<strong>マスタントゥアーノ／フラン・ガルシア／ゴンサロ・ガルシア</strong>の同行を希望と報道。実現は不透明</li>
+        <li>※ クシ=アサレのOVRは若手のため<strong>推定値</strong>。前線の完成度は補強の成否に大きく左右される</li>
       </ul>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <span>FULHAM · DOSSIER 11 / 17</span>
+    <span>FULHAM · DOSSIER 10 / 20</span>
     <span>EAFC 26 RATINGS · OFFICIAL</span>
     <span>COMPILED FOR TAKEMOTO</span>
   </footer>

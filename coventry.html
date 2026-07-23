@@ -3,26 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brentford FC — 2026/27 Tactical Dossier</title>
+<title>Coventry City — 2026/27 Tactical Dossier</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-primary: #0a1018;
-    --bg-secondary: #160a0b;
-    --bg-tertiary: #200d0e;
+    --bg-primary: #0a1628;
+    --bg-secondary: #0e1c2e;
+    --bg-tertiary: #14283d;
     --pitch-dark: #0d3b1f;
     --pitch-light: #11502a;
-    --brfc: #E30613;
-    --brfc-light: #f43a48;
-    --brfc-deep: #a3040d;
-    --brfc-glow: #ff5560;
+    --coventry: #2E86C1;
+    --coventry-light: #5FB6E4;
+    --coventry-glow: #8ACFF0;
     --gold: #c9a961;
     --gold-bright: #e8c87a;
     --text-primary: #f4f1ea;
-    --text-secondary: #c6b6b7;
-    --text-muted: #756061;
+    --text-secondary: #a8b2c4;
+    --text-muted: #5e6b80;
+    --danger: #d4574e;
     --warning: #e8a04a;
     --incoming: #5fb88a;
     --incoming-bright: #7ed4a7;
@@ -34,8 +34,8 @@
   body {
     background: var(--bg-primary);
     background-image:
-      radial-gradient(ellipse at top, rgba(227, 6, 19, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at bottom, rgba(201, 169, 97, 0.04) 0%, transparent 50%);
+      radial-gradient(ellipse at top, rgba(95, 182, 228, 0.16) 0%, transparent 52%),
+      radial-gradient(ellipse at bottom, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
     color: var(--text-primary);
     font-family: 'Inter', 'Noto Serif JP', sans-serif;
     min-height: 100vh;
@@ -57,18 +57,18 @@
   .header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 40px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; }
   .header-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
   .breadcrumb { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-  .breadcrumb:hover { color: var(--brfc-light); }
-  .header-meta .dot { width: 6px; height: 6px; background: var(--brfc-light); border-radius: 50%; box-shadow: 0 0 12px var(--brfc-light); animation: pulse 2s ease-in-out infinite; }
+  .breadcrumb:hover { color: var(--coventry-light); }
+  .header-meta .dot { width: 6px; height: 6px; background: var(--coventry-light); border-radius: 50%; box-shadow: 0 0 12px var(--coventry-light); animation: pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.85); } }
 
   h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 88px); font-weight: 600; line-height: 0.95; letter-spacing: -0.02em; }
-  h1 .accent { color: var(--brfc-light); font-style: italic; font-weight: 500; }
+  h1 .accent { color: var(--coventry-light); font-style: italic; font-weight: 500; }
 
   .champions-tag { display: inline-block; margin-top: 14px; padding: 4px 12px; border: 1px solid var(--gold); color: var(--gold-bright); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; }
   .subtitle { margin-top: 12px; font-size: 14px; color: var(--text-secondary); letter-spacing: 0.05em; font-weight: 300; }
 
   .header-right { text-align: right; font-family: 'JetBrains Mono', monospace; }
-  .formation-badge { display: inline-block; padding: 14px 22px; background: linear-gradient(135deg, var(--brfc-deep) 0%, var(--brfc) 100%); border-radius: 4px; font-size: 28px; font-weight: 700; letter-spacing: 0.1em; box-shadow: 0 8px 32px rgba(227,6,19,0.4); margin-bottom: 12px; color: var(--text-primary); }
+  .formation-badge { display: inline-block; padding: 14px 22px; background: linear-gradient(135deg, var(--coventry) 0%, var(--coventry-light) 100%); border-radius: 4px; font-size: 28px; font-weight: 700; letter-spacing: 0.1em; box-shadow: 0 8px 32px rgba(46,134,193,0.4); margin-bottom: 12px; color: var(--text-primary); }
   .manager-info { font-size: 11px; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; }
   .manager-info strong { color: var(--gold-bright); font-weight: 500; }
 
@@ -84,7 +84,7 @@
   .briefing::before { content:''; position:absolute; top:0; left:0; width:80px; height:2px; background: var(--gold-bright); }
   .briefing-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
   .briefing h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; line-height: 1.1; margin-bottom: 8px; }
-  .briefing h2 .em { font-style: italic; color: var(--brfc-glow); font-weight: 500; }
+  .briefing h2 .em { font-style: italic; color: var(--coventry-glow); font-weight: 500; }
   .briefing-lead { font-family: 'Noto Serif JP', serif; font-size: 14.5px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 36px; max-width: 880px; font-weight: 300; }
   .briefing-lead strong { color: var(--text-primary); font-weight: 500; }
 
@@ -100,7 +100,7 @@
   .mini-line { stroke: rgba(255,255,255,0.22); stroke-width: 0.25; fill: none; }
 
   .mp { position: absolute; transform: translate(-50%, -50%); z-index: 5; width: 0; }
-  .mp-disc { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--brfc-light) 0%, var(--brfc) 100%); border: 1.5px solid var(--text-primary); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--text-primary); box-shadow: 0 3px 10px rgba(0,0,0,0.55), inset 0 -2px 5px rgba(0,0,0,0.25); margin: 0 auto; }
+  .mp-disc { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--coventry-light) 0%, var(--coventry) 100%); border: 1.5px solid var(--text-primary); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; color: var(--text-primary); box-shadow: 0 3px 10px rgba(0,0,0,0.55), inset 0 -2px 5px rgba(0,0,0,0.25); margin: 0 auto; }
   .mp-disc.gk { background: linear-gradient(135deg, var(--gold-bright) 0%, #8b6f3a 100%); }
   .mp-disc.risk { border-color: var(--warning); box-shadow: 0 3px 10px rgba(0,0,0,0.55), 0 0 0 2px rgba(232,160,74,0.18); }
   .mp-disc.incoming-target { border-color: var(--incoming); box-shadow: 0 3px 10px rgba(0,0,0,0.55), 0 0 0 2px rgba(95,184,138,0.22); }
@@ -115,6 +115,7 @@
   .mp-alt .mp-alt-label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.12em; opacity: 0.85; margin-bottom: 1px; }
   .mp-alt .mp-alt-name { color: var(--text-primary); font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.9); }
   .mp-alt .mp-alt-rating { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; margin-left: 3px; }
+  .mp-alt .mp-alt-sub { display: block; opacity: 0.75; font-size: 8.5px; margin-top: 1px; }
 
   .phase-desc { font-size: 12.5px; line-height: 1.65; color: var(--text-secondary); font-weight: 300; padding: 0 4px; }
   .phase-desc strong { color: var(--text-primary); font-weight: 500; }
@@ -132,14 +133,14 @@
   .legend { display: flex; justify-content: center; gap: 28px; margin-top: 32px; flex-wrap: wrap; padding: 18px; background: var(--bg-secondary); border: 1px solid var(--line); }
   .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.06em; }
   .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
-  .legend-dot.normal { background: linear-gradient(135deg, var(--brfc-light), var(--brfc)); border: 1.5px solid var(--text-primary); }
+  .legend-dot.normal { background: linear-gradient(135deg, var(--coventry-light), var(--coventry)); border: 1.5px solid var(--text-primary); }
   .legend-dot.gk { background: linear-gradient(135deg, var(--gold-bright), #8b6f3a); border: 1.5px solid var(--text-primary); }
-  .legend-dot.risk { background: linear-gradient(135deg, var(--brfc-light), var(--brfc)); border: 1.5px solid var(--warning); box-shadow: 0 0 0 2px rgba(232,160,74,0.2); }
-  .legend-dot.incoming { background: linear-gradient(135deg, var(--brfc-light), var(--brfc)); border: 1.5px solid var(--incoming); box-shadow: 0 0 0 2px rgba(95,184,138,0.25); }
+  .legend-dot.risk { background: linear-gradient(135deg, var(--coventry-light), var(--coventry)); border: 1.5px solid var(--warning); box-shadow: 0 0 0 2px rgba(232,160,74,0.2); }
+  .legend-dot.incoming { background: linear-gradient(135deg, var(--coventry-light), var(--coventry)); border: 1.5px solid var(--incoming); box-shadow: 0 0 0 2px rgba(95,184,138,0.25); }
 
   /* NOTES */
   .notes { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .note-card { background: var(--bg-secondary); border-left: 2px solid var(--brfc); padding: 24px 28px; }
+  .note-card { background: var(--bg-secondary); border-left: 2px solid var(--coventry-light); padding: 24px 28px; }
   .note-card.incoming-card { border-left-color: var(--incoming); }
   .note-card.risk-card { border-left-color: var(--warning); }
   .note-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; margin-bottom: 14px; color: var(--gold-bright); }
@@ -180,18 +181,18 @@
       <div class="header-meta">
         <span class="dot"></span>
         <a href="index.html" class="breadcrumb">← INDEX</a>
-        <span>DOSSIER 04 / 20 · POS 10</span>
+        <span>DOSSIER 07 / 20 · POS —（昇格）</span>
         <span>SEASON 2026 — 2027</span>
       </div>
-      <h1>Brentford <span class="accent">FC.</span></h1>
-      <div class="champions-tag">アンドリュース体制 · 2年目</div>
-      <div class="subtitle">Gtech Community Stadium · West London · Founded 1889</div>
+      <h1>Coventry <span class="accent">City.</span></h1>
+      <div class="champions-tag">🏆 Championship 優勝 · 2025/26 · PL 昇格</div>
+      <div class="subtitle">Coventry Building Society Arena · Coventry · Founded 1883</div>
     </div>
     <div class="header-right">
       <div class="formation-badge">4 — 2 — 3 — 1</div>
       <div class="manager-info">
-        Head Coach · <strong>キース・アンドリュース</strong><br>
-        2025年6月内部昇格 · 続投
+        Manager · <strong>フランク・ランパード</strong><br>
+        2024年11月就任 · 続投
       </div>
     </div>
   </header>
@@ -200,28 +201,28 @@
   <div class="info-strip">
     <div class="info-cell">
       <div class="label">戦術アイデンティティ</div>
-      <div class="value small">セットプレー＆強度</div>
+      <div class="value">攻撃的・多得点</div>
     </div>
     <div class="info-cell">
       <div class="label">保持時の形</div>
-      <div class="value">3 — 2 — 2 — 3</div>
+      <div class="value">3 — 2 — 5</div>
     </div>
     <div class="info-cell">
       <div class="label">非保持時</div>
-      <div class="value small">4-4-2 圧縮 → 5-4-1 も併用</div>
+      <div class="value small">ミドルブロック → 積極奪回</div>
     </div>
     <div class="info-cell">
       <div class="label">25/26 成績</div>
-      <div class="value small">10位 · 53pts · GD +3</div>
+      <div class="value small">Championship 優勝 · 95pts · GD +52（PL昇格）</div>
     </div>
   </div>
 
   <!-- TACTICAL BRIEFING -->
   <section class="briefing">
     <div class="briefing-label">▎Tactical Briefing</div>
-    <h2>4-2-3-1 — <span class="em">「継承2年目の深化」</span></h2>
+    <h2>4-2-3-1 — <span class="em">「Championship最多97得点の攻撃」</span></h2>
     <p class="briefing-lead">
-      7年率いたトーマス・フランクをトッテナムに、ンベウモ（マンU）・ウィサ（ニューカッスル）・フレッケン（レバークーゼン）ら主力を相次いで失いながら、セットプレーコーチから内部昇格した<strong>キース・アンドリュースは1年目に堂々10位</strong>を確保。2年目の今夏は、フリーで<strong>キャラム・ウィルソン</strong>、バーンリーから<strong>ジェイドン・アンソニー</strong>、ザルツブルクから<strong>シュスター</strong>を加え、失点源だった前線の厚みを補いました。土台は不変で、<strong>「割安な才能＋世界屈指のセットプレー設計＋デュエル強度」</strong>。保持時は<strong>3-2-2-3</strong>へ可変し、格上相手には<strong>5-4-1のバックファイブ</strong>にも柔軟に落とします。
+      ランパードの4-2-3-1は<strong>4バック + ダブルボランチ + 3枚のアタッキングMF + 1トップ</strong>。<strong>95pts・97得点</strong>でChampionshipを制した攻撃的スタイルが土台です。保持時は右SBファンエウェイクが最終ラインに絞り、左SBダシルバが高く張り出し、主将グライムスがブロックを操作することで<strong>3-2-5</strong>へ可変。ルドーニを中心に坂元・チャウナが内外を流動的に動き、相手を横幅いっぱいに引き伸ばします。PLでは<strong>25年ぶりの舞台に耐える守備の再構築</strong>が最大の課題で、夏はCB・DMの底上げに投資しました。
     </p>
 
     <div class="briefing-grid">
@@ -238,74 +239,93 @@
             <rect x="11" y="61" width="28" height="9" class="mini-line"/>
           </svg>
 
+          <!-- ST -->
           <div class="mp" style="top:14%; left:50%;">
-            <div class="mp-disc incoming-target">80</div>
+            <div class="mp-disc">74</div>
+            <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">H・ライト</div></div>
+          </div>
+          <!-- LAM -->
+          <div class="mp edge-left" style="top:30%; left:14%;">
+            <div class="mp-disc incoming-target">72</div>
             <div class="mp-label">
-              <span class="mp-pos">ST</span>
-              <div class="mp-name">イゴール・チアゴ</div>
+              <span class="mp-pos">LAM</span>
+              <div class="mp-name">チャウナ</div>
               <div class="mp-alt incoming">
-                <span class="mp-alt-label">▼ 新加入（フリー）</span>
-                <span class="mp-alt-name">C・ウィルソン</span><span class="mp-alt-rating">78</span>
+                <span class="mp-alt-label">▼ 新加入（Burnley £20m）</span>
+                <span class="mp-alt-name">加入確定</span>
               </div>
             </div>
           </div>
-          <div class="mp edge-left" style="top:30%; left:13%;">
-            <div class="mp-disc incoming-target">77</div>
+          <!-- CAM -->
+          <div class="mp" style="top:32%; left:50%;">
+            <div class="mp-disc">75</div>
+            <div class="mp-label"><span class="mp-pos">CAM</span><div class="mp-name">ルドーニ</div></div>
+          </div>
+          <!-- RAM -->
+          <div class="mp edge-right" style="top:30%; left:86%;">
+            <div class="mp-disc">72</div>
+            <div class="mp-label"><span class="mp-pos">RAM</span><div class="mp-name">坂元</div></div>
+          </div>
+          <!-- DM left (Grimes C) -->
+          <div class="mp" style="top:52%; left:36%;">
+            <div class="mp-disc">75</div>
+            <div class="mp-label"><span class="mp-pos">DM (C)</span><div class="mp-name">グライムス</div></div>
+          </div>
+          <!-- DM right (Eccles, Onyeka competing) -->
+          <div class="mp" style="top:52%; left:64%;">
+            <div class="mp-disc incoming-target">69</div>
             <div class="mp-label">
-              <span class="mp-pos">LW</span>
-              <div class="mp-name">シャーデ</div>
+              <span class="mp-pos">DM</span>
+              <div class="mp-name">エクレス</div>
               <div class="mp-alt incoming">
-                <span class="mp-alt-label">▼ 新加入（バーンリー）</span>
-                <span class="mp-alt-name">J・アンソニー</span><span class="mp-alt-rating">74</span>
+                <span class="mp-alt-label">▼ 新加入 完全移籍</span>
+                <span class="mp-alt-name">オニェカ</span><span class="mp-alt-rating">74</span>
+                <span class="mp-alt-sub">Brentfordから昇格</span>
               </div>
             </div>
           </div>
-          <div class="mp" style="top:34%; left:50%;">
-            <div class="mp-disc">79</div>
-            <div class="mp-label"><span class="mp-pos">CAM</span><div class="mp-name">ダムスゴー</div></div>
-          </div>
-          <div class="mp edge-right" style="top:30%; left:87%;">
-            <div class="mp-disc">77</div>
-            <div class="mp-label"><span class="mp-pos">RW</span><div class="mp-name">ウアタラ</div></div>
-          </div>
-          <div class="mp" style="top:52%; left:38%;">
+          <!-- LB -->
+          <div class="mp edge-left" style="top:70%; left:11%;">
             <div class="mp-disc">71</div>
-            <div class="mp-label"><span class="mp-pos">LCM</span><div class="mp-name">ヤルモリュク</div></div>
+            <div class="mp-label"><span class="mp-pos">LB</span><div class="mp-name">ダシルバ</div></div>
           </div>
-          <div class="mp" style="top:52%; left:62%;">
-            <div class="mp-disc">79</div>
-            <div class="mp-label"><span class="mp-pos">RCM</span><div class="mp-name">イェンセン</div></div>
-          </div>
-          <div class="mp edge-left" style="top:72%; left:11%;">
-            <div class="mp-disc">76</div>
-            <div class="mp-label"><span class="mp-pos">LB</span><div class="mp-name">ルイス=ポッター</div></div>
-          </div>
+          <!-- LCB (Amenda new signing) -->
           <div class="mp" style="top:74%; left:36%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">LCB (C)</span><div class="mp-name">コリンズ</div></div>
+            <div class="mp-disc incoming-target">71</div>
+            <div class="mp-label">
+              <span class="mp-pos">LCB</span>
+              <div class="mp-name">アメンダ</div>
+              <div class="mp-alt incoming">
+                <span class="mp-alt-label">▼ 新加入（Frankfurt £17m）</span>
+                <span class="mp-alt-name">加入確定</span>
+              </div>
+            </div>
           </div>
+          <!-- RCB -->
           <div class="mp" style="top:74%; left:64%;">
-            <div class="mp-disc">77</div>
-            <div class="mp-label"><span class="mp-pos">RCB</span><div class="mp-name">ファン・デン・ベルフ</div></div>
+            <div class="mp-disc">71</div>
+            <div class="mp-label"><span class="mp-pos">RCB</span><div class="mp-name">B・トーマス</div></div>
           </div>
-          <div class="mp edge-right" style="top:72%; left:89%;">
-            <div class="mp-disc">73</div>
-            <div class="mp-label"><span class="mp-pos">RB</span><div class="mp-name">カヨデ</div></div>
+          <!-- RB -->
+          <div class="mp edge-right" style="top:70%; left:89%;">
+            <div class="mp-disc">75</div>
+            <div class="mp-label"><span class="mp-pos">RB</span><div class="mp-name">ファンエウェイク</div></div>
           </div>
+          <!-- GK -->
           <div class="mp" style="top:94%; left:50%;">
-            <div class="mp-disc gk">79</div>
-            <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">ケレハー</div></div>
+            <div class="mp-disc gk">67</div>
+            <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">B・ウィルソン</div></div>
           </div>
         </div>
         <p class="phase-desc">
-          非保持の基本形。<strong>4-4-2気味に中盤を圧縮</strong>し、無理に追わずブロックを保ってサイドへ誘導。デュエルで奪い、ロングスローやFKといった<strong>セットプレーを最大の得点源</strong>に変える。格上には両ウイングが列を下げ、<strong>5-4-1のバックファイブ</strong>で撤退守備に切り替えるのがアンドリュース流の柔軟性。
+          基本布陣。<strong>4バック + ダブルボランチで中央を封鎖</strong>し、Championshイップでは無理をせずミドルブロックを組んで奪ってからの速攻で殴る形。CBに£17mのアメンダを補強し、<strong>PLの強度に耐える最終ラインへ底上げ</strong>を図りました。
         </p>
       </div>
 
       <!-- OFFENSIVE PHASE -->
       <div class="phase-diagram">
         <div class="phase-title">▲ OFFENSIVE PHASE — 保持時</div>
-        <div class="phase-shape">3 — 2 — 2 — 3</div>
+        <div class="phase-shape">3 — 2 — 5</div>
         <div class="mini-pitch">
           <svg class="markings" viewBox="0 0 50 70" preserveAspectRatio="none">
             <line x1="0" y1="35" x2="50" y2="35" class="mini-line"/>
@@ -314,57 +334,64 @@
             <rect x="11" y="61" width="28" height="9" class="mini-line"/>
           </svg>
 
-          <div class="mp edge-left" style="top:15%; left:10%;">
-            <div class="mp-disc">77</div>
-            <div class="mp-label"><span class="mp-pos">LW</span><div class="mp-name">シャーデ</div></div>
+          <!-- ST -->
+          <div class="mp" style="top:13%; left:50%;">
+            <div class="mp-disc">74</div>
+            <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">H・ライト</div></div>
           </div>
-          <div class="mp" style="top:12%; left:50%;">
-            <div class="mp-disc">80</div>
-            <div class="mp-label"><span class="mp-pos">ST</span><div class="mp-name">イゴール・チアゴ</div></div>
-          </div>
-          <div class="mp edge-right" style="top:15%; left:90%;">
-            <div class="mp-disc">77</div>
-            <div class="mp-label"><span class="mp-pos">RW</span><div class="mp-name">ウアタラ</div></div>
-          </div>
-
-          <div class="mp" style="top:34%; left:34%;">
-            <div class="mp-disc">79</div>
-            <div class="mp-label"><span class="mp-pos">LAM</span><div class="mp-name">ダムスゴー</div></div>
-          </div>
-          <div class="mp" style="top:34%; left:66%;">
-            <div class="mp-disc">79</div>
-            <div class="mp-label"><span class="mp-pos">RAM</span><div class="mp-name">イェンセン ↑</div></div>
-          </div>
-
-          <div class="mp" style="top:54%; left:36%;">
+          <!-- LW (Dasilva pushed up) -->
+          <div class="mp edge-left" style="top:20%; left:9%;">
             <div class="mp-disc">71</div>
-            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">ヤルモリュク</div></div>
+            <div class="mp-label"><span class="mp-pos">LW</span><div class="mp-name">ダシルバ ↑</div></div>
           </div>
-          <div class="mp" style="top:54%; left:64%;">
-            <div class="mp-disc">73</div>
-            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">カヨデ ↑</div></div>
+          <!-- LCAM (Tchaouna inside) -->
+          <div class="mp" style="top:24%; left:33%;">
+            <div class="mp-disc incoming-target">72</div>
+            <div class="mp-label"><span class="mp-pos">LCAM</span><div class="mp-name">チャウナ</div></div>
           </div>
-
-          <div class="mp" style="top:75%; left:27%;">
-            <div class="mp-disc">76</div>
-            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">ルイス=ポッター ↑</div></div>
+          <!-- RCAM (Rudoni) -->
+          <div class="mp" style="top:24%; left:67%;">
+            <div class="mp-disc">75</div>
+            <div class="mp-label"><span class="mp-pos">RCAM</span><div class="mp-name">ルドーニ ↑</div></div>
           </div>
-          <div class="mp" style="top:77%; left:50%;">
-            <div class="mp-disc">78</div>
-            <div class="mp-label"><span class="mp-pos">CB (C)</span><div class="mp-name">コリンズ</div></div>
+          <!-- RW (Sakamoto) -->
+          <div class="mp edge-right" style="top:20%; left:91%;">
+            <div class="mp-disc">72</div>
+            <div class="mp-label"><span class="mp-pos">RW</span><div class="mp-name">坂元</div></div>
           </div>
-          <div class="mp" style="top:75%; left:73%;">
-            <div class="mp-disc">77</div>
-            <div class="mp-label"><span class="mp-pos">RCB</span><div class="mp-name">ファン・デン・ベルフ</div></div>
+          <!-- Double pivot: Grimes -->
+          <div class="mp" style="top:48%; left:36%;">
+            <div class="mp-disc">75</div>
+            <div class="mp-label"><span class="mp-pos">DM (C)</span><div class="mp-name">グライムス</div></div>
           </div>
-
+          <!-- Double pivot: Eccles -->
+          <div class="mp" style="top:48%; left:64%;">
+            <div class="mp-disc incoming-target">69</div>
+            <div class="mp-label"><span class="mp-pos">DM</span><div class="mp-name">エクレス</div></div>
+          </div>
+          <!-- Back 3: LCB Amenda -->
+          <div class="mp" style="top:74%; left:25%;">
+            <div class="mp-disc incoming-target">71</div>
+            <div class="mp-label"><span class="mp-pos">LCB</span><div class="mp-name">アメンダ</div></div>
+          </div>
+          <!-- Back 3: CB Thomas -->
+          <div class="mp" style="top:76%; left:50%;">
+            <div class="mp-disc">71</div>
+            <div class="mp-label"><span class="mp-pos">CB</span><div class="mp-name">B・トーマス</div></div>
+          </div>
+          <!-- Back 3: RCB (van Ewijk tucked in) -->
+          <div class="mp" style="top:74%; left:75%;">
+            <div class="mp-disc">75</div>
+            <div class="mp-label"><span class="mp-pos">RCB</span><div class="mp-name">ファンエウェイク ↓</div></div>
+          </div>
+          <!-- GK -->
           <div class="mp" style="top:94%; left:50%;">
-            <div class="mp-disc gk">79</div>
-            <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">ケレハー</div></div>
+            <div class="mp-disc gk">67</div>
+            <div class="mp-label"><span class="mp-pos">GK</span><div class="mp-name">B・ウィルソン</div></div>
           </div>
         </div>
         <p class="phase-desc">
-          保持時の可変形。<strong>左SBルイス=ポッターが3バックに加わり、右SBカヨデがヤルモリュクと組んでダブルピボット</strong>に。ダムスゴーとイェンセンが2列目の「2」、前線3枚が幅を取る<strong>3-2-2-3</strong>。後方を厚くして安全に前進し、決定機をセットプレーとウアタラ・シャーデの快足で量産する。
+          保持時の可変形。<strong>右SBファンエウェイクが最終ラインに絞って3バック化</strong>し、左SBダシルバは左大外を高く駆け上がる非対称アタック。グライムス＋エクレスの2枚が中央を締め、前線5枚がゴール前を横幅いっぱいに埋める。<strong>Championshイップ最多97得点</strong>を生んだ形です。
         </p>
       </div>
     </div>
@@ -372,34 +399,34 @@
     <!-- ROLES -->
     <div class="role-grid">
       <div class="role-cell">
-        <div class="role-pos">GK</div>
-        <div class="role-title">ケレハー = 定着した正GK</div>
-        <div class="role-desc">リヴァプールから加入し、フレッケンの後釜を完全に埋めた。<strong>シュートストップと足元</strong>を兼備し、後方からの3-2-2-3ビルドアップを支える。</div>
+        <div class="role-pos">CB × 2</div>
+        <div class="role-title">昇格の柱 + £17mの補強</div>
+        <div class="role-desc">昇格を支えたボビー・トーマスに、フランクフルトから<strong>アメンダ（£17m）</strong>を補強。空中戦とスピードでPLの強度に備える最重要投資。キッチングが3番手。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">CB × 2/3</div>
-        <div class="role-title">コリンズが束ねる守備</div>
-        <div class="role-desc">主将コリンズが統率。<strong>空中戦とセットプレー攻守</strong>の中心で、格上相手の<strong>5-4-1化ではファン・デン・ベルフらと3枚の壁</strong>を形成する。</div>
+        <div class="role-pos">FB × 2</div>
+        <div class="role-title">非対称の両SB</div>
+        <div class="role-desc">右のファンエウェイク（OVR75）は保持時に絞ってビルドアップに関与、左のダシルバは大外を高く制圧。<strong>攻撃の非対称性の源</strong>で、システムの心臓部。</div>
       </div>
       <div class="role-cell">
         <div class="role-pos">DM × 2</div>
-        <div class="role-title">汗かきのダブルピボット</div>
-        <div class="role-desc">若きヤルモリュクの運動量に、経験豊富なイェンセンの配球が加わる。<strong>保持時は右SBカヨデが内側に絞り</strong>後方の枚数を確保する可変が鍵。</div>
+        <div class="role-title">グライムス + オニェカ</div>
+        <div class="role-desc">主将<strong>グライムス</strong>が配球とテンポメイク、相方のエクレスにブレントフォードから完全移籍の<strong>オニェカ</strong>が競合。PLの走力・強度を上乗せする。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">CAM</div>
-        <div class="role-title">ダムスゴー = 創造の核</div>
-        <div class="role-desc">才能が完全に開花した技巧派。<strong>ライン間で前を向き、ラストパスとセットプレーのキッカー</strong>を担うチームの頭脳。攻撃の質は彼次第。</div>
+        <div class="role-pos">CAM × 1</div>
+        <div class="role-title">ルドーニ = 攻撃のハブ</div>
+        <div class="role-desc">チーム最高OVR75の一角。中央でボールを引き出し、ハーフスペースへ侵入して得点関与。<strong>Championship時代の創造性の中心</strong>。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">WING × 2</div>
-        <div class="role-title">快足＋新戦力の厚み</div>
-        <div class="role-desc">シャーデの快足とウアタラの推進力が両翼。<strong>ここに新加入ジェイドン・アンソニー(74)が加わり</strong>、ンベウモ流出で薄かった攻撃陣にローテーションの層をもたらす。</div>
+        <div class="role-pos">WIDE × 2</div>
+        <div class="role-title">坂元 × チャウナ</div>
+        <div class="role-desc">右で違いを作る<strong>坂元</strong>のドリブルに、Burnleyから<strong>£20mのチャウナ</strong>を左に加え爆発力を注入。内外に流動する2枚が5レーンを埋める鍵。</div>
       </div>
       <div class="role-cell">
-        <div class="role-pos">ST</div>
-        <div class="role-title">イゴール・チアゴ ＆ ウィルソン</div>
-        <div class="role-desc">屈強なブラジル人9番がエースに成長（OVR80）。<strong>控えにフリー加入のベテラン、キャラム・ウィルソン(78)</strong>を確保し、9番の得点力を二枚で担保する。</div>
+        <div class="role-pos">ST × 1</div>
+        <div class="role-title">H・ライト = クラブ記録の9番</div>
+        <div class="role-desc">クラブ史上最高額で加入した得点源。今季17得点。<strong>背負って収め、前線から追う</strong>大黒柱。PLでの決定力維持が昇格組の生命線。</div>
       </div>
     </div>
   </section>
@@ -409,7 +436,7 @@
     <div class="legend-item"><span class="legend-dot normal"></span>通常選手 · EAFC26 OVR</div>
     <div class="legend-item"><span class="legend-dot gk"></span>GK</div>
     <div class="legend-item"><span class="legend-dot risk"></span>離脱リスク 70%+</div>
-    <div class="legend-item"><span class="legend-dot incoming"></span>新加入 · 補強</div>
+    <div class="legend-item"><span class="legend-dot incoming"></span>補強候補 70%+</div>
   </div>
 
   <!-- NOTES -->
@@ -417,27 +444,27 @@
     <div class="note-card risk-card">
       <h3>離脱動向</h3>
       <ul>
-        <li><strong>フランク・オニェカ</strong>（CM）<span class="pct warn">75%</span><br>昇格組コヴェントリーへ。出場機会を求め移籍濃厚で、中盤の頭数整理の一環</li>
-        <li><strong>整理・放出組</strong><span class="pct neutral">—</span><br>センシ（→トッテナム）、シニステラ（→クルゼイロ）ら出場機会の薄い選手を売却。<strong>好調な主力は常に売却候補</strong>という構造は不変</li>
-        <li>コリンズ、ダムスゴー、ケレハー、イェンセンら<strong>中核は残留濃厚</strong>。2年目は継続性を優先</li>
+        <li><strong>E・シムズ</strong>（ST控え）<span class="pct warn">70%</span><br>ストライカー競争で出場機会が細り、ウルヴス・シェフィールドUが関心。9番の頭数整理の第一候補</li>
+        <li><strong>H・ライト</strong>（先発ST）<span class="pct neutral">40%</span><br>大型ストライカー補強の噂が絡むが、現時点では残留濃厚。放出なら前線設計が根本から変わる要監視枠</li>
+        <li>主力（グライムス、ルドーニ、ファンエウェイク、坂元、B・トーマス）は<strong>全員残留濃厚</strong>。昇格の勢いのままスカッドの核を維持</li>
       </ul>
     </div>
 
     <div class="note-card incoming-card">
       <h3>補強動向</h3>
       <ul>
-        <li><strong>C・ウィルソン</strong>（ST）<span class="pct inc">確定</span><br>ウェストハムからフリーで加入。<strong>実績あるベテラン9番</strong>をゼロ円で確保し、イゴール・チアゴの控え兼ジョーカーに</li>
-        <li><strong>J・アンソニー</strong>（WG）<span class="pct inc">確定</span><br>降格したバーンリーから最大£20m級で獲得。<strong>ンベウモ流出後の翼のローテ</strong>を補強</li>
-        <li><strong>シュスター</strong>（AM/WG）<span class="pct inc">確定</span><br>ザルツブルクから若手を獲得。将来性重視の<strong>再販価値モデル</strong>への投資</li>
-        <li>※ 主力売却益を若く割安な才能へ再投資する<strong>持続可能なモデル</strong>を堅持。26-27はアンドリュース色を深める熟成フェーズ</li>
+        <li><strong>LW: ルーム・チャウナ</strong><span class="pct inc">100%</span><br>Burnleyから<strong>£20m・5年契約で加入確定</strong>。左に推進力と決定力を注入する目玉補強</li>
+        <li><strong>CB: オレル・アメンダ</strong><span class="pct inc">100%</span><br>Eintracht Frankfurtから<strong>£17m・4年契約で加入確定</strong>。PL強度に備える最終ラインの底上げ</li>
+        <li><strong>DM: フランク・オニェカ</strong><span class="pct inc">100%</span><br>Brentfordからのレンタルを<strong>完全移籍化</strong>。中盤に走力・強度をプラス</li>
+        <li><strong>GK・追加の9番</strong><span class="pct neutral">50%</span><br>ビルドアップ対応GKとPL級ストライカーの上積みを継続検討中</li>
       </ul>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <span>BRENTFORD · DOSSIER 04 / 20</span>
-    <span>EAFC 26 RATINGS · OFFICIAL</span>
+    <span>COVENTRY CITY · DOSSIER 07 / 20</span>
+    <span>EAFC 26 RATINGS · 一部推定（下部リーグのため）</span>
     <span>COMPILED FOR TAKEMOTO</span>
   </footer>
 
